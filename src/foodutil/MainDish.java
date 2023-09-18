@@ -1,7 +1,5 @@
 package foodutil;
 
-import offersutil.Offer;
-
 public class MainDish extends Food
 {
 

@@ -6,7 +6,6 @@ public abstract class Food
     protected String description;
     protected double price;
 
-
     public String getName()
     {
         return name;
