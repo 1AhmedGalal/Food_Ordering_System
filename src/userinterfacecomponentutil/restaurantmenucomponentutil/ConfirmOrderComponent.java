@@ -20,7 +20,7 @@ public class ConfirmOrderComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance();
+        Logger logger = Logger.getInstance(null);
         Restaurant restaurant = (Restaurant) logger.getUser();
 
         DataLoader dataLoader = new OrderDummyDataLoader(restaurant); //needs fix

@@ -64,7 +64,7 @@ public class AddMenuItemComponent extends UserInterfaceComponent
                 break;
         }
 
-        Logger logger = Logger.getInstance();
+        Logger logger = Logger.getInstance(null);
         Restaurant restaurant = (Restaurant) logger.getUser();
         //Menu menu = restaurant.getMenu();
         //menu.addItem(food);

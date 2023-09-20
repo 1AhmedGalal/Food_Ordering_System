@@ -1,20 +1,26 @@
 package logger;
+import dataloaders.DataLoader;
 import dataloaders.user.UserDataLoader;
 import users.User;
 
 public class Logger
 {
     private static Logger instance = null;
+
     private User user;
-    private Logger()
+
+    private UserDataLoader userDataLoader;
+
+    private Logger(UserDataLoader userDataLoader)
     {
         user = null;
+        this.userDataLoader = userDataLoader;
     }
 
-    public static Logger getInstance()
+    public static Logger getInstance(UserDataLoader userDataLoader)
     {
         if(instance == null)
-            instance = new Logger();
+            instance = new Logger(userDataLoader);
 
         return instance;
     }

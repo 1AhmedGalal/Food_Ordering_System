@@ -22,7 +22,7 @@ public class ViewMenuComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance();
+        Logger logger = Logger.getInstance(null);
         User user = logger.getUser();
         Restaurant restaurant = null;
 

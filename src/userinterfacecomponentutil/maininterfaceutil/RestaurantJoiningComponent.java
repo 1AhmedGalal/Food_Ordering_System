@@ -66,7 +66,7 @@ public class RestaurantJoiningComponent extends UserInterfaceComponent
             user = new OnlineRestaurant(name, phone, password);
         }
 
-        Logger logger = Logger.getInstance();
+        Logger logger = Logger.getInstance(null);
         UserDataLoader dataLoader = new UserDataDummyLoader(user); //needs Factory
 
         logger.signUp(dataLoader);

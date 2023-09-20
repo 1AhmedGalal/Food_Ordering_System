@@ -31,7 +31,7 @@ public class SignInComponent extends UserInterfaceComponent
 
         User user = new NormalUser(phone, password);
 
-        Logger logger = Logger.getInstance();
+        Logger logger = Logger.getInstance(null);
         UserDataLoader dataLoader = new UserDataDummyLoader(user);
 
         logger.signIn(dataLoader);

@@ -14,15 +14,21 @@ public abstract class User
         password = null;
     }
 
-    public User(String name, String phone, String password)
+    public User(String name, String phone, String password) throws UserException
     {
+        if(name == null || phone == null || password == null)
+            throw new UserException("Invalid Data");
+
         this.name = name;
         this.phone = phone;
         this.password = password;
     }
 
-    public User(String phone, String password)
+    public User(String phone, String password) throws UserException
     {
+        if(phone == null || password == null)
+            throw new UserException("Invalid Data");
+
         this.phone = phone;
         this.password = password;
     }

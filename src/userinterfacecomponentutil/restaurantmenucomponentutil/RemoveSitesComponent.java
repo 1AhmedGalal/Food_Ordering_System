@@ -18,7 +18,7 @@ public class RemoveSitesComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance();
+        Logger logger = Logger.getInstance(null);
 
         if(!(logger.getUser() instanceof OnsiteRestaurant))
             throw new Exception("No Sites Available Since This Restaurant is not Onsite");

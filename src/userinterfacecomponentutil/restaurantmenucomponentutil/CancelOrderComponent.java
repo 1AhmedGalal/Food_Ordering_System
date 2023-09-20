@@ -20,7 +20,7 @@ public class CancelOrderComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance();
+        Logger logger = Logger.getInstance(null);
         User user = logger.getUser();
 
         DataLoader dataLoader = new OrderDummyDataLoader(user); //needs fix

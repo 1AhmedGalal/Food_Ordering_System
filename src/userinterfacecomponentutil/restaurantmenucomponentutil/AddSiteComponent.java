@@ -18,7 +18,7 @@ public class AddSiteComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance();
+        Logger logger = Logger.getInstance(null);
 
         if(!(logger.getUser() instanceof OnsiteRestaurant))
             throw  new Exception("This restaurant is not Onsite Restaurant");

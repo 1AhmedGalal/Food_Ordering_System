@@ -22,7 +22,7 @@ public class TransformRestaurantComponent extends UserInterfaceComponent
     public void doWork() throws Exception
     {
         Scanner scanner = new Scanner(System.in);
-        Logger logger = Logger.getInstance();
+        Logger logger = Logger.getInstance(null);
 
         String currentType, newType;
         if(logger.getUser() instanceof OnsiteRestaurant)

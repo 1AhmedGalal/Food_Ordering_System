@@ -43,7 +43,7 @@ public class MainInterface extends UserInterfaceCollector
             }
 
             UserInterfaceCollector userInterfaceCollector = null;
-            Logger logger = Logger.getInstance();
+            Logger logger = Logger.getInstance(null);
             User user = logger.getUser();
 
             if(user instanceof Admin)
