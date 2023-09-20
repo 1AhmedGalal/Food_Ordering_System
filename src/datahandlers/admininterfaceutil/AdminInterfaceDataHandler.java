@@ -1,7 +1,7 @@
 package datahandlers.admininterfaceutil;
 
 import datahandlers.DataHandler;
-import userinterfacecomponentcollectingutil.AdminInterface;
+import userinterfacecollectors.AdminInterface;
 
 public abstract class AdminInterfaceDataHandler implements DataHandler
 {

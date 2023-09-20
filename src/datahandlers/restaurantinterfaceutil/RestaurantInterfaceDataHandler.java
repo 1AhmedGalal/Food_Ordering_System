@@ -1,6 +1,6 @@
 package datahandlers.restaurantinterfaceutil;
 import datahandlers.DataHandler;
-import userinterfacecomponentcollectingutil.RestaurantInterface;
+import userinterfacecollectors.RestaurantInterface;
 
 public abstract class RestaurantInterfaceDataHandler implements DataHandler
 {

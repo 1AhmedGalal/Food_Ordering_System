@@ -1,6 +1,6 @@
 package datahandlers.maininterfaceutil;
 
-import userinterfacecomponentcollectingutil.MainInterface;
+import userinterfacecollectors.MainInterface;
 
 public class MainInterfaceDBDataHandler extends MainInterfaceDataHandler
 {

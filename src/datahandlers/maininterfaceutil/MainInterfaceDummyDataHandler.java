@@ -1,11 +1,11 @@
 package datahandlers.maininterfaceutil;
 
-import userinterfacecomponentcollectingutil.MainInterface;
-import userinterfacecomponentutil.UserInterfaceComponent;
-import userinterfacecomponentutil.maininterfaceutil.ExitComponent;
-import userinterfacecomponentutil.maininterfaceutil.RestaurantJoiningComponent;
-import userinterfacecomponentutil.maininterfaceutil.SignInComponent;
-import userinterfacecomponentutil.maininterfaceutil.SignUpComponent;
+import userinterfacecollectors.MainInterface;
+import userinterfacecomponents.UserInterfaceComponent;
+import userinterfacecomponents.maininterfacecomponents.ExitComponent;
+import userinterfacecomponents.maininterfacecomponents.RestaurantJoiningComponent;
+import userinterfacecomponents.maininterfacecomponents.SignInComponent;
+import userinterfacecomponents.maininterfacecomponents.SignUpComponent;
 
 public class MainInterfaceDummyDataHandler extends MainInterfaceDataHandler
 {

@@ -1,9 +1,9 @@
 package datahandlers.restaurantinterfaceutil;
 
-import userinterfacecomponentcollectingutil.RestaurantInterface;
-import userinterfacecomponentutil.UserInterfaceComponent;
-import userinterfacecomponentutil.maininterfaceutil.SignOutComponent;
-import userinterfacecomponentutil.restaurantmenucomponentutil.*;
+import userinterfacecollectors.RestaurantInterface;
+import userinterfacecomponents.UserInterfaceComponent;
+import userinterfacecomponents.maininterfacecomponents.SignOutComponent;
+import userinterfacecomponents.restaurantmenucomponentutil.*;
 
 public class RestaurantInterfaceDummyDataHandler extends RestaurantInterfaceDataHandler
 {

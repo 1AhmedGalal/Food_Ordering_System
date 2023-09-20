@@ -4,6 +4,8 @@ import datahandlers.DataHandlerException;
 import users.*;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 
 public class UserFileHandler extends UserDataHandler
 {
@@ -15,8 +17,13 @@ public class UserFileHandler extends UserDataHandler
     @Override
     public void saveAllData() throws DataHandlerException
     {
+        if(!allDataLoaded) // this prevents clearing the file and losing all data
+            loadAllData();
+
         try
         {
+            clearFile();
+
             BufferedWriter writer = new BufferedWriter(new FileWriter("users.txt"));
             writer.write("=");
 
@@ -60,6 +67,12 @@ public class UserFileHandler extends UserDataHandler
             {
                 if(line.equals("="))
                 {
+                    if(cnt != 0) //makes sure that this "=" is not the beginning of the file
+                    {
+                        users.add(user);
+                        userTypes.add(userType);
+                    }
+
                     cnt = 0;
                     continue;
                 }
@@ -105,9 +118,6 @@ public class UserFileHandler extends UserDataHandler
                     default:
                         break;
                 }
-
-                users.add(user);
-                userTypes.add(userType);
 
                 cnt++;
             }
@@ -206,5 +216,22 @@ public class UserFileHandler extends UserDataHandler
         }
 
         return false;
+    }
+
+    private void clearFile() throws DataHandlerException
+    {
+        try
+        {
+            FileWriter fileWriter = new FileWriter("users.txt", false);
+            PrintWriter printWriter = new PrintWriter(fileWriter, false);
+            printWriter.flush();
+            printWriter.close();
+            fileWriter.close();
+        }
+        catch (Exception e)
+        {
+            throw new DataHandlerException(e.getMessage());
+        }
+
     }
 }

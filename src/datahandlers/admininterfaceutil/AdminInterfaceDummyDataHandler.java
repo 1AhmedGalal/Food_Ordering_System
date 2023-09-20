@@ -1,11 +1,11 @@
 package datahandlers.admininterfaceutil;
 
-import userinterfacecomponentcollectingutil.AdminInterface;
-import userinterfacecomponentutil.UserInterfaceComponent;
-import userinterfacecomponentutil.admincomponentsutil.BanUserComponent;
-import userinterfacecomponentutil.admincomponentsutil.ViewAllRestaurantsComponent;
-import userinterfacecomponentutil.admincomponentsutil.ViewAllUsersComponents;
-import userinterfacecomponentutil.maininterfaceutil.SignOutComponent;
+import userinterfacecollectors.AdminInterface;
+import userinterfacecomponents.UserInterfaceComponent;
+import userinterfacecomponents.admincomponentsutil.BanUserComponent;
+import userinterfacecomponents.admincomponentsutil.ViewAllRestaurantsComponent;
+import userinterfacecomponents.admincomponentsutil.ViewAllUsersComponents;
+import userinterfacecomponents.maininterfacecomponents.SignOutComponent;
 
 public class AdminInterfaceDummyDataHandler extends AdminInterfaceDataHandler
 {

@@ -1,7 +1,7 @@
-import datahandlers.DataHandlerException;
+import datahandlers.users.UserDataHandler;
 import datahandlers.users.UserFileHandler;
-import userinterfacecomponentcollectingutil.MainInterface;
-import userinterfacecomponentcollectingutil.UserInterfaceCollector;
+import userinterfacecollectors.MainInterface;
+import userinterfacecollectors.UserInterfaceCollector;
 
 public class FoodOrderingSystem
 {

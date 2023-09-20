@@ -1,7 +1,7 @@
 package datahandlers.userinterfaceutil;
 
 import datahandlers.DataHandler;
-import userinterfacecomponentcollectingutil.UserInterface;
+import userinterfacecollectors.UserInterface;
 
 public abstract class UserInterfaceDataHandler implements DataHandler
 {
