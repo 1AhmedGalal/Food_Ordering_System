@@ -1,31 +1,31 @@
 package datahandlers.users;
 import datahandlers.DataHandler;
-import users.NormalUser;
-import users.Restaurant;
 import users.User;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public abstract class UserDataHandler implements DataHandler
 {
     protected boolean allDataLoaded;
 
     protected User user;
+
     protected UserType userType;
 
-    protected ArrayList<User> users;
+    protected LinkedList<User> users; // a lot of adding and removing but no lookups
 
-    protected ArrayList<UserType> userTypes;
+    protected LinkedList<UserType> userTypes; // a lot of adding and removing but no lookups
 
     public UserDataHandler(User user)
     {
         this.user = user;
-        users = new ArrayList<>();
-        userTypes = new ArrayList<>();
+        users = new LinkedList<>();
+        userTypes = new LinkedList<>();
         allDataLoaded = false;
     }
 
     public abstract boolean userPhoneExists();
-    public abstract boolean userExists();
+    public abstract boolean validUserData();
 
     public User getUser()
     {
@@ -36,21 +36,16 @@ public abstract class UserDataHandler implements DataHandler
     {
         ArrayList<String> usersData = new ArrayList<>();
 
-        String data;
-        for(User user : users)
+        for(int i = 0; i < users.size(); i++)
         {
-            if(user instanceof NormalUser && userType == UserType.NORMAL)
+            User user = users.get(i);
+            UserType currentUserType = userTypes.get(i);
+
+            if(currentUserType == userType)
             {
-                data = "Name : " + user.getName() + " Phone : " + user.getPhone();
+                String data = "Name : " + user.getName() + " Phone : " + user.getPhone();
                 usersData.add(data);
             }
-            else if(user instanceof Restaurant && userType == UserType.RESTAURANT)
-            {
-                data = "Name : " + user.getName() + " Phone : " + user.getPhone();
-                usersData.add(data);
-            }
-
-
         }
 
         return usersData;

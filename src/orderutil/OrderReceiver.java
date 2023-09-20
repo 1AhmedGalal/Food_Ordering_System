@@ -1,6 +1,7 @@
 package orderutil;
 
 import datahandlers.DataHandler;
+import datahandlers.DataHandlerException;
 import users.User;
 
 import java.util.ArrayList;
@@ -11,8 +12,7 @@ public abstract class OrderReceiver
     protected ArrayList<Order> orders;
     protected DataHandler dataHandler;
 
-    public OrderReceiver(DataHandler dataHandler, User user)
-    {
+    public OrderReceiver(DataHandler dataHandler, User user) throws DataHandlerException {
         orders = new ArrayList<>();
         this.user = user;
         this.dataHandler = dataHandler;
@@ -21,8 +21,7 @@ public abstract class OrderReceiver
         orders = (ArrayList<Order>) dataHandler.loadFullObject();
     }
 
-    public void addOrder(Order order)
-    {
+    public void addOrder(Order order) throws DataHandlerException {
         orders.add(order);
         dataHandler.saveAllData();
     }

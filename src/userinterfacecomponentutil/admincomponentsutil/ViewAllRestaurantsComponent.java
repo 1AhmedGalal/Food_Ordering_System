@@ -24,7 +24,7 @@ public class ViewAllRestaurantsComponent extends UserInterfaceComponent
 
         UserDataHandler userDataHandler = new UserDataDummyHandler(user);
         userDataHandler.loadAllData();
-        ArrayList<String> usersData = userDataHandler.getAllUsersData(UserType.RESTAURANT);
+        ArrayList<String> usersData = userDataHandler.getAllUsersData(UserType.ONSITE_RESTAURANT);
 
         for(String userData : usersData)
             System.out.println(userData);

@@ -4,6 +4,11 @@ import menuutil.Menu;
 
 public class OnlineRestaurant extends Restaurant
 {
+    public OnlineRestaurant()
+    {
+        super();
+    }
+
     public OnlineRestaurant(String phone, String password) throws UserException
     {
         super(phone, password);

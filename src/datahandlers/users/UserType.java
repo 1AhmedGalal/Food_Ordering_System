@@ -4,7 +4,9 @@ public enum UserType
 {
     NORMAL,
 
-    RESTAURANT,
+    ONLINE_RESTAURANT,
+
+    ONSITE_RESTAURANT,
 
     ADMIN,
 

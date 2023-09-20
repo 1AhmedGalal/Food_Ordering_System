@@ -2,6 +2,11 @@ package users;
 
 public class NormalUser extends User
 {
+    public NormalUser()
+    {
+        super();
+    }
+
     public NormalUser(String phone, String password) throws UserException
     {
         super(phone, password);

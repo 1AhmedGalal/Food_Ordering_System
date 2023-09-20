@@ -1,5 +1,6 @@
 package userinterfacecomponentcollectingutil;
 
+import datahandlers.DataHandlerException;
 import datahandlers.maininterfaceutil.MainInterfaceDataHandler;
 import datahandlers.maininterfaceutil.MainInterfaceDummyDataHandler;
 import logger.Logger;
@@ -11,7 +12,7 @@ import java.util.Scanner;
 
 public class MainInterface extends UserInterfaceCollector
 {
-    public MainInterface()
+    public MainInterface() throws DataHandlerException
     {
         super();
         MainInterfaceDataHandler mainInterfaceDataLoader = new MainInterfaceDummyDataHandler(this);
@@ -19,8 +20,7 @@ public class MainInterface extends UserInterfaceCollector
     }
 
     @Override
-    public void display()
-    {
+    public void display() throws DataHandlerException {
         System.out.println("Welcome !");
         while(true)
         {

@@ -1,6 +1,7 @@
 package reviewutil;
 
 import datahandlers.DataHandler;
+import datahandlers.DataHandlerException;
 import users.Restaurant;
 import users.User;
 import java.util.ArrayList;
@@ -11,8 +12,7 @@ public abstract class ReviewsEditor
     ArrayList<Review> reviews;
     DataHandler dataHandler;
 
-    public ReviewsEditor(User user, DataHandler dataHandler)
-    {
+    public ReviewsEditor(User user, DataHandler dataHandler) throws DataHandlerException {
         this.user = user;
         this.dataHandler = dataHandler;
         this.reviews = new ArrayList<>();

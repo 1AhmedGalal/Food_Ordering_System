@@ -1,6 +1,7 @@
 package offersutil;
 
 import datahandlers.DataHandler;
+import datahandlers.DataHandlerException;
 import foodutil.Food;
 import users.Restaurant;
 import users.User;
@@ -13,8 +14,7 @@ public abstract class OfferEditor
     ArrayList<Offer> offers;
     DataHandler dataHandler;
 
-    public OfferEditor(Restaurant restaurant, DataHandler dataHandler)
-    {
+    public OfferEditor(Restaurant restaurant, DataHandler dataHandler) throws DataHandlerException {
         this.restaurant = restaurant;
         this.dataHandler = dataHandler;
         offers = new ArrayList<>();

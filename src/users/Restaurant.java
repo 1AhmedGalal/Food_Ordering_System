@@ -4,6 +4,11 @@ import menuutil.Menu;
 
 public abstract class Restaurant extends User
 {
+    public Restaurant()
+    {
+        super();
+    }
+
     public Restaurant(String phone, String password) throws UserException
     {
         super(phone, password);

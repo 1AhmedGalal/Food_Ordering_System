@@ -1,5 +1,6 @@
 package userinterfacecomponentcollectingutil;
 
+import datahandlers.DataHandlerException;
 import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
 
@@ -15,8 +16,7 @@ public abstract class UserInterfaceCollector
         userInterfaceComponents = new ArrayList<>();
     }
 
-    public void display()
-    {
+    public void display() throws DataHandlerException {
         while(true)
         {
             this.displayComponents();

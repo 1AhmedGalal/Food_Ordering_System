@@ -7,6 +7,10 @@ public class OnsiteRestaurant extends Restaurant
 {
     protected LinkedList<String> sites; // linked list is used as restaurants will remove and add new sites frequently but no lookups needed
 
+    public OnsiteRestaurant()
+    {
+        super();
+    }
     public OnsiteRestaurant(Restaurant restaurant)
     {
         super(restaurant);

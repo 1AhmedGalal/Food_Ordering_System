@@ -1,4 +1,5 @@
 package logger;
+import datahandlers.DataHandlerException;
 import datahandlers.users.UserDataHandler;
 import users.User;
 
@@ -16,7 +17,7 @@ public class Logger
         this.userDataHandler = null;
     }
 
-    public static Logger getInstance(UserDataHandler userDataHandler) throws LoggingException
+    public static Logger getInstance(UserDataHandler userDataHandler) throws Exception
     {
         if(userDataHandler == null)
             throw new LoggingException("No Data Handler Found");
@@ -30,17 +31,16 @@ public class Logger
         return instance;
     }
 
-    public void signIn() throws LoggingException
-    {
+    public void signIn() throws LoggingException, DataHandlerException {
         if(userLoggedIn())
             throw new LoggingException("A user is already logged in");
-        else if(!userDataHandler.userExists())
+        else if(!userDataHandler.validUserData())
             throw new LoggingException("User not found");
 
         this.user = (User) userDataHandler.loadFullObject();
     }
 
-    public void signUp() throws LoggingException
+    public void signUp() throws Exception
     {
         if(userLoggedIn())
             throw new LoggingException("A user is already logged in");
