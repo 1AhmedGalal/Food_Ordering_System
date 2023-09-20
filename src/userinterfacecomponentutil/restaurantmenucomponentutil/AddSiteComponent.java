@@ -1,16 +1,11 @@
 package userinterfacecomponentutil.restaurantmenucomponentutil;
 
-import datasavingutil.DataLoader;
-import datasavingutil.userutil.UserDataDummyLoader;
-import datasavingutil.userutil.UserDataLoader;
-import loggingutil.Logger;
+import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.OnlineRestaurant;
-import usersutil.OnsiteRestaurant;
-import usersutil.Restaurant;
-import usersutil.User;
+import users.OnsiteRestaurant;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class AddSiteComponent extends UserInterfaceComponent
@@ -29,7 +24,7 @@ public class AddSiteComponent extends UserInterfaceComponent
             throw  new Exception("This restaurant is not Onsite Restaurant");
 
         OnsiteRestaurant restaurant = (OnsiteRestaurant) logger.getUser();
-        ArrayList<String> sites = restaurant.getSites();
+        LinkedList<String> sites = restaurant.getSites();
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter Site : ");

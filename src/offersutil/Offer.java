@@ -1,6 +1,6 @@
 package offersutil;
 
-import usersutil.Restaurant;
+import users.Restaurant;
 
 abstract class Offer
 {

@@ -1,19 +1,14 @@
 package userinterfacecomponentutil.restaurantmenucomponentutil;
 
-import datasavingutil.DataLoader;
-import datasavingutil.orderutil.OrderDummyDataLoader;
-import loggingutil.Logger;
-import menuutil.Menu;
+import dataloaders.DataLoader;
+import dataloaders.orderutil.OrderDummyDataLoader;
+import logger.Logger;
 import orderutil.FoodOrderReceiver;
 import orderutil.OrderReceiver;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.NormalUser;
-import usersutil.OnlineRestaurant;
-import usersutil.Restaurant;
-import usersutil.User;
+import users.User;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ViewOrdersComponent extends UserInterfaceComponent
 {

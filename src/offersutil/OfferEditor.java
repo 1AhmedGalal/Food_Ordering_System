@@ -1,9 +1,9 @@
 package offersutil;
 
-import datasavingutil.DataLoader;
+import dataloaders.DataLoader;
 import foodutil.Food;
-import usersutil.Restaurant;
-import usersutil.User;
+import users.Restaurant;
+import users.User;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ public abstract class OfferEditor
 
     public void editDiscount(Food food, double percentage)
     {
-  
+
     }
 
     public void removeDiscount(Food food)

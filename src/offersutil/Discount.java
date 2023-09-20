@@ -1,7 +1,7 @@
 package offersutil;
 
 import foodutil.Food;
-import usersutil.Restaurant;
+import users.Restaurant;
 
 class Discount extends Offer
 {

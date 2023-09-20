@@ -1,12 +1,11 @@
 package userinterfacecomponentutil.restaurantmenucomponentutil;
 
-import loggingutil.Logger;
-import menuutil.Menu;
+import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.OnsiteRestaurant;
-import usersutil.Restaurant;
+import users.OnsiteRestaurant;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class RemoveSitesComponent extends UserInterfaceComponent
@@ -26,7 +25,7 @@ public class RemoveSitesComponent extends UserInterfaceComponent
 
         OnsiteRestaurant restaurant = (OnsiteRestaurant) logger.getUser();
 
-        ArrayList<String> sites = restaurant.getSites();
+        LinkedList<String> sites = restaurant.getSites();
         if(sites.isEmpty())
             throw new Exception("No Sites Available");
 

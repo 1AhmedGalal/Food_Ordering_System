@@ -1,11 +1,11 @@
 package userinterfacecomponentutil.maininterfaceutil;
 
-import datasavingutil.userutil.UserDataDummyLoader;
-import datasavingutil.userutil.UserDataLoader;
-import loggingutil.Logger;
+import dataloaders.user.UserDataDummyLoader;
+import dataloaders.user.UserDataLoader;
+import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.NormalUser;
-import usersutil.User;
+import users.NormalUser;
+import users.User;
 
 import java.util.Scanner;
 

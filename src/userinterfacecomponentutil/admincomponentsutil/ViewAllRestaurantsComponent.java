@@ -1,11 +1,11 @@
 package userinterfacecomponentutil.admincomponentsutil;
 
-import datasavingutil.userutil.UserDataDummyLoader;
-import datasavingutil.userutil.UserDataLoader;
-import datasavingutil.userutil.UserType;
-import loggingutil.Logger;
+import dataloaders.user.UserDataDummyLoader;
+import dataloaders.user.UserDataLoader;
+import dataloaders.user.UserType;
+import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.User;
+import users.User;
 
 import java.util.ArrayList;
 

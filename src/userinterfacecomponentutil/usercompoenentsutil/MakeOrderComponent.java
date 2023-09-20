@@ -1,20 +1,20 @@
 package userinterfacecomponentutil.usercompoenentsutil;
 
-import datasavingutil.DataLoader;
-import datasavingutil.orderutil.OrderDummyDataLoader;
-import datasavingutil.userutil.UserDataDummyLoader;
-import datasavingutil.userutil.UserDataLoader;
+import dataloaders.DataLoader;
+import dataloaders.orderutil.OrderDummyDataLoader;
+import dataloaders.user.UserDataDummyLoader;
+import dataloaders.user.UserDataLoader;
 import foodutil.Food;
-import loggingutil.Logger;
+import logger.Logger;
 import menuutil.Menu;
 import orderutil.FoodOrder;
 import orderutil.FoodOrderReceiver;
 import orderutil.Order;
 import orderutil.OrderReceiver;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.OnlineRestaurant;
-import usersutil.Restaurant;
-import usersutil.User;
+import users.OnlineRestaurant;
+import users.Restaurant;
+import users.User;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -38,11 +38,11 @@ public class MakeOrderComponent extends UserInterfaceComponent
         System.out.println("Please Enter Restaurant Name : ");
         input = scanner.next();
 
-        Restaurant restaurant = (Restaurant) new OnlineRestaurant(input, null, null, null);
+        Restaurant restaurant = (Restaurant) new OnlineRestaurant(input, null ,null);
         UserDataLoader userDataLoader = new UserDataDummyLoader(restaurant);
         restaurant = (Restaurant) userDataLoader.loadFullObject();
 
-        Menu menu = restaurant.getMenu();
+        Menu menu = null; ///needs fix
         ArrayList<String> menuItems = menu.getItemsNames();
         for(String menuItem : menuItems)
             System.out.println(menuItem);

@@ -1,13 +1,10 @@
 package userinterfacecomponentutil.admincomponentsutil;
 
-import datasavingutil.DataLoader;
-import datasavingutil.userutil.UserDataDummyLoader;
-import datasavingutil.userutil.UserDataLoader;
-import datasavingutil.userutil.UserType;
-import loggingutil.Logger;
+import dataloaders.user.UserDataDummyLoader;
+import dataloaders.user.UserDataLoader;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.NormalUser;
-import usersutil.User;
+import users.NormalUser;
+import users.User;
 
 import java.util.Scanner;
 

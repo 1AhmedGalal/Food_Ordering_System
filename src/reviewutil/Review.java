@@ -1,7 +1,7 @@
 package reviewutil;
 
-import usersutil.Restaurant;
-import usersutil.User;
+import users.Restaurant;
+import users.User;
 
 abstract class Review
 {

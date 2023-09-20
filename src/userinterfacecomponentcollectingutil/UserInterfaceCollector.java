@@ -1,6 +1,6 @@
 package userinterfacecomponentcollectingutil;
 
-import loggingutil.Logger;
+import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
 
 import java.util.ArrayList;

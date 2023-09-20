@@ -1,12 +1,7 @@
 package userinterfacecomponentcollectingutil;
 
-import datasavingutil.admininterfaceutil.AdminInterfaceDataLoader;
-import datasavingutil.admininterfaceutil.AdminInterfaceDummyDataLoader;
-import datasavingutil.maininterfaceutil.MainInterfaceDataLoader;
-import datasavingutil.maininterfaceutil.MainInterfaceDummyDataLoader;
-import loggingutil.Logger;
-
-import java.util.Scanner;
+import dataloaders.admininterfaceutil.AdminInterfaceDataLoader;
+import dataloaders.admininterfaceutil.AdminInterfaceDummyDataLoader;
 
 public class AdminInterface extends UserInterfaceCollector
 {

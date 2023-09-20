@@ -1,13 +1,13 @@
 package userinterfacecomponentutil.restaurantmenucomponentutil;
 
-import datasavingutil.userutil.UserDataDummyLoader;
-import datasavingutil.userutil.UserDataLoader;
-import loggingutil.Logger;
+import dataloaders.user.UserDataDummyLoader;
+import dataloaders.user.UserDataLoader;
+import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.OnlineRestaurant;
-import usersutil.OnsiteRestaurant;
-import usersutil.Restaurant;
-import usersutil.User;
+import users.OnlineRestaurant;
+import users.OnsiteRestaurant;
+import users.Restaurant;
+import users.User;
 
 import java.util.Scanner;
 

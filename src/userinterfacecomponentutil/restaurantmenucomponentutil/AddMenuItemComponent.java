@@ -4,10 +4,10 @@ import foodutil.Appetizer;
 import foodutil.Drink;
 import foodutil.Food;
 import foodutil.MainDish;
-import loggingutil.Logger;
+import logger.Logger;
 import menuutil.Menu;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.Restaurant;
+import users.Restaurant;
 
 import java.util.Scanner;
 
@@ -66,7 +66,7 @@ public class AddMenuItemComponent extends UserInterfaceComponent
 
         Logger logger = Logger.getInstance();
         Restaurant restaurant = (Restaurant) logger.getUser();
-        Menu menu = restaurant.getMenu();
-        menu.addItem(food);
+        //Menu menu = restaurant.getMenu();
+        //menu.addItem(food);
     }
 }

@@ -1,8 +1,5 @@
-import datasavingutil.DataLoader;
-import datasavingutil.maininterfaceutil.MainInterfaceDummyDataLoader;
 import userinterfacecomponentcollectingutil.MainInterface;
 import userinterfacecomponentcollectingutil.UserInterfaceCollector;
-import java.util.Scanner;
 
 public class FoodOrderingSystem
 {

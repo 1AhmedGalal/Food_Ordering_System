@@ -1,12 +1,11 @@
 package userinterfacecomponentcollectingutil;
 
-import datasavingutil.DataLoader;
-import datasavingutil.maininterfaceutil.MainInterfaceDataLoader;
-import datasavingutil.maininterfaceutil.MainInterfaceDummyDataLoader;
-import loggingutil.Logger;
-import usersutil.Admin;
-import usersutil.Restaurant;
-import usersutil.User;
+import dataloaders.maininterfaceutil.MainInterfaceDataLoader;
+import dataloaders.maininterfaceutil.MainInterfaceDummyDataLoader;
+import logger.Logger;
+import users.Admin;
+import users.Restaurant;
+import users.User;
 
 import java.util.Scanner;
 

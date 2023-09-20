@@ -1,10 +1,10 @@
 package userinterfacecomponentutil.maininterfaceutil;
 
-import datasavingutil.userutil.UserDataDummyLoader;
-import datasavingutil.userutil.UserDataLoader;
-import loggingutil.Logger;
+import dataloaders.user.UserDataDummyLoader;
+import dataloaders.user.UserDataLoader;
+import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.User;
+import users.User;
 
 public class DeleteAccountComponent extends UserInterfaceComponent
 {

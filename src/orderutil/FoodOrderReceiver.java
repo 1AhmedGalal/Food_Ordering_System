@@ -1,7 +1,7 @@
 package orderutil;
 
-import datasavingutil.DataLoader;
-import usersutil.User;
+import dataloaders.DataLoader;
+import users.User;
 
 public class FoodOrderReceiver extends OrderReceiver
 {

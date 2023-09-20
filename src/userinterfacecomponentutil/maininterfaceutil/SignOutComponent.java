@@ -1,6 +1,6 @@
 package userinterfacecomponentutil.maininterfaceutil;
 
-import loggingutil.Logger;
+import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
 
 public class SignOutComponent extends UserInterfaceComponent

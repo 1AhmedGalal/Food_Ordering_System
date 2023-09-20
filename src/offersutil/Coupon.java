@@ -1,7 +1,7 @@
 package offersutil;
 
-import usersutil.Restaurant;
-import usersutil.User;
+import users.Restaurant;
+import users.User;
 
 class Coupon extends Offer
 {

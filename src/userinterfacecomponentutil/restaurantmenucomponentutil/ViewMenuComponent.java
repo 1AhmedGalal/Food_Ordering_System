@@ -1,13 +1,13 @@
 package userinterfacecomponentutil.restaurantmenucomponentutil;
 
-import datasavingutil.userutil.UserDataDummyLoader;
-import datasavingutil.userutil.UserDataLoader;
-import loggingutil.Logger;
+import dataloaders.user.UserDataDummyLoader;
+import dataloaders.user.UserDataLoader;
+import logger.Logger;
 import menuutil.Menu;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.OnlineRestaurant;
-import usersutil.Restaurant;
-import usersutil.User;
+import users.OnlineRestaurant;
+import users.Restaurant;
+import users.User;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -36,12 +36,12 @@ public class ViewMenuComponent extends UserInterfaceComponent
 
             Scanner scanner = new Scanner(System.in);
             String name = scanner.next();
-            restaurant = (Restaurant) new OnlineRestaurant(name, null, null, null);
+            restaurant = (Restaurant) new OnlineRestaurant(name, null, null);
             UserDataLoader userDataLoader = new UserDataDummyLoader(restaurant);
             restaurant = (Restaurant) userDataLoader.loadFullObject();
         }
 
-        Menu menu = restaurant.getMenu();
+        Menu menu = null; ///needs fix
 
         ArrayList<String> menuItems = menu.getItemsNames();
 

@@ -1,8 +1,7 @@
 package orderutil;
 
 import foodutil.Food;
-import usersutil.Restaurant;
-import usersutil.User;
+import users.User;
 
 import java.util.ArrayList;
 

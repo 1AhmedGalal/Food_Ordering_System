@@ -1,8 +1,8 @@
 package reviewutil;
 
-import datasavingutil.DataLoader;
-import usersutil.Restaurant;
-import usersutil.User;
+import dataloaders.DataLoader;
+import users.Restaurant;
+import users.User;
 import java.util.ArrayList;
 
 public abstract class ReviewsEditor

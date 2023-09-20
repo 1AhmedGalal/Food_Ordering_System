@@ -1,15 +1,15 @@
 package userinterfacecomponentutil.maininterfaceutil;
 
-import datasavingutil.userutil.UserDataDummyLoader;
-import datasavingutil.userutil.UserDataLoader;
-import loggingutil.Logger;
+import dataloaders.user.UserDataDummyLoader;
+import dataloaders.user.UserDataLoader;
+import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
-import usersutil.NormalUser;
-import usersutil.OnlineRestaurant;
-import usersutil.OnsiteRestaurant;
-import usersutil.User;
+import users.OnlineRestaurant;
+import users.OnsiteRestaurant;
+import users.User;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class RestaurantJoiningComponent extends UserInterfaceComponent
@@ -43,7 +43,7 @@ public class RestaurantJoiningComponent extends UserInterfaceComponent
         User user = null;
         if(choice != 1)
         {
-            ArrayList<String> sites = new ArrayList<>();
+            LinkedList<String> sites = new LinkedList<>();
             String site;
 
             do
@@ -58,12 +58,12 @@ public class RestaurantJoiningComponent extends UserInterfaceComponent
             }
             while (choice == 1);
 
-            user = new OnsiteRestaurant(name, phone, password, null, sites);
+            user = new OnsiteRestaurant(name, phone, password, sites);
 
         }
         else
         {
-            user = new OnlineRestaurant(name, phone, password, null);
+            user = new OnlineRestaurant(name, phone, password);
         }
 
         Logger logger = Logger.getInstance();
