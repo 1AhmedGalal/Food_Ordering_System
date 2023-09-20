@@ -1,7 +1,7 @@
 package userinterfacecomponentutil.maininterfaceutil;
 
-import dataloaders.user.UserDataDummyLoader;
-import dataloaders.user.UserDataLoader;
+import datahandlers.users.UserDataDummyHandler;
+import datahandlers.users.UserDataHandler;
 import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
 import users.NormalUser;
@@ -32,9 +32,9 @@ public class SignInComponent extends UserInterfaceComponent
         User user = new NormalUser(phone, password);
 
         Logger logger = Logger.getInstance(null);
-        UserDataLoader dataLoader = new UserDataDummyLoader(user);
+        UserDataHandler dataLoader = new UserDataDummyHandler(user);
 
-        logger.signIn(dataLoader);
+        logger.signIn();
 
     }
 }

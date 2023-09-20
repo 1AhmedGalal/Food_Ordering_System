@@ -1,7 +1,7 @@
 package userinterfacecomponentutil.restaurantmenucomponentutil;
 
-import dataloaders.user.UserDataDummyLoader;
-import dataloaders.user.UserDataLoader;
+import datahandlers.users.UserDataDummyHandler;
+import datahandlers.users.UserDataHandler;
 import logger.Logger;
 import menuutil.Menu;
 import userinterfacecomponentutil.UserInterfaceComponent;
@@ -37,8 +37,8 @@ public class ViewMenuComponent extends UserInterfaceComponent
             Scanner scanner = new Scanner(System.in);
             String name = scanner.next();
             restaurant = (Restaurant) new OnlineRestaurant(name, null, null);
-            UserDataLoader userDataLoader = new UserDataDummyLoader(restaurant);
-            restaurant = (Restaurant) userDataLoader.loadFullObject();
+            UserDataHandler userDataHandler = new UserDataDummyHandler(restaurant);
+            restaurant = (Restaurant) userDataHandler.loadFullObject();
         }
 
         Menu menu = null; ///needs fix

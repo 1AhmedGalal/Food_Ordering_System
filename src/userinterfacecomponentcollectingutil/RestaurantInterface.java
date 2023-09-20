@@ -1,15 +1,15 @@
 package userinterfacecomponentcollectingutil;
 
-import dataloaders.restaurantinterfaceutil.RestaurantInterfaceDataLoader;
-import dataloaders.restaurantinterfaceutil.RestaurantInterfaceDummyDataLoader;
+import datahandlers.restaurantinterfaceutil.RestaurantInterfaceDataHandler;
+import datahandlers.restaurantinterfaceutil.RestaurantInterfaceDummyDataHandler;
 
 public class RestaurantInterface extends UserInterfaceCollector
 {
     public RestaurantInterface()
     {
         super();
-        RestaurantInterfaceDataLoader restaurantInterfaceDataLoader = new RestaurantInterfaceDummyDataLoader(this);
-        restaurantInterfaceDataLoader.loadAllData();
+        RestaurantInterfaceDataHandler restaurantInterfaceDataLoader = new RestaurantInterfaceDummyDataHandler(this);
+        //restaurantInterfaceDataLoader.loadAllData();
     }
 
 }

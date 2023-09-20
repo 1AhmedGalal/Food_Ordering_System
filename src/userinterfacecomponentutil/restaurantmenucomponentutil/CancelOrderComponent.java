@@ -1,7 +1,7 @@
 package userinterfacecomponentutil.restaurantmenucomponentutil;
 
-import dataloaders.DataLoader;
-import dataloaders.orderutil.OrderDummyDataLoader;
+import datahandlers.DataHandler;
+import datahandlers.orderutil.OrderDummyDataHandler;
 import logger.Logger;
 import orderutil.FoodOrderReceiver;
 import orderutil.OrderReceiver;
@@ -23,8 +23,8 @@ public class CancelOrderComponent extends UserInterfaceComponent
         Logger logger = Logger.getInstance(null);
         User user = logger.getUser();
 
-        DataLoader dataLoader = new OrderDummyDataLoader(user); //needs fix
-        OrderReceiver orderReceiver = new FoodOrderReceiver(dataLoader, user);
+        DataHandler dataHandler = new OrderDummyDataHandler(user); //needs fix
+        OrderReceiver orderReceiver = new FoodOrderReceiver(dataHandler, user);
 
         System.out.println("Please Enter order ID : ");
         Scanner scanner = new Scanner(System.in);

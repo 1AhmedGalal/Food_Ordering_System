@@ -1,7 +1,7 @@
 package userinterfacecomponentutil.admincomponentsutil;
 
-import dataloaders.user.UserDataDummyLoader;
-import dataloaders.user.UserDataLoader;
+import datahandlers.users.UserDataDummyHandler;
+import datahandlers.users.UserDataHandler;
 import userinterfacecomponentutil.UserInterfaceComponent;
 import users.NormalUser;
 import users.User;
@@ -25,8 +25,8 @@ public class BanUserComponent extends UserInterfaceComponent
         String phone = scanner.next();
 
         User user = new NormalUser(phone, null);
-        UserDataLoader userDataLoader = new UserDataDummyLoader(user);
+        UserDataHandler userDataHandler = new UserDataDummyHandler(user);
 
-        userDataLoader.removeObject(user);
+        userDataHandler.removeObject(user);
     }
 }

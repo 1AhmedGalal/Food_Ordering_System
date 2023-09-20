@@ -1,13 +1,13 @@
 package userinterfacecomponentcollectingutil;
 
-import dataloaders.userinterfaceutil.UserInterfaceDataLoader;
-import dataloaders.userinterfaceutil.UserInterfaceDummyDataLoader;
+import datahandlers.userinterfaceutil.UserInterfaceDataHandler;
+import datahandlers.userinterfaceutil.UserInterfaceDummyDataHandler;
 public class UserInterface extends UserInterfaceCollector
 {
     public UserInterface()
     {
         super();
-        UserInterfaceDataLoader userInterfaceDataLoader = new UserInterfaceDummyDataLoader(this);
+        UserInterfaceDataHandler userInterfaceDataLoader = new UserInterfaceDummyDataHandler(this);
         userInterfaceDataLoader.loadAllData();
     }
 }

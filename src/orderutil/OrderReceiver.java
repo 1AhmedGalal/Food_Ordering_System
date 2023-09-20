@@ -1,6 +1,6 @@
 package orderutil;
 
-import dataloaders.DataLoader;
+import datahandlers.DataHandler;
 import users.User;
 
 import java.util.ArrayList;
@@ -9,22 +9,22 @@ public abstract class OrderReceiver
 {
     protected User user;
     protected ArrayList<Order> orders;
-    protected DataLoader dataLoader;
+    protected DataHandler dataHandler;
 
-    public OrderReceiver(DataLoader dataLoader, User user)
+    public OrderReceiver(DataHandler dataHandler, User user)
     {
         orders = new ArrayList<>();
         this.user = user;
-        this.dataLoader = dataLoader;
+        this.dataHandler = dataHandler;
 
-        dataLoader.loadAllData();
-        orders = (ArrayList<Order>) dataLoader.loadFullObject();
+        dataHandler.loadAllData();
+        orders = (ArrayList<Order>) dataHandler.loadFullObject();
     }
 
     public void addOrder(Order order)
     {
         orders.add(order);
-        dataLoader.saveAllData();
+        dataHandler.saveAllData();
     }
 
     public ArrayList<String> getUserOrders()

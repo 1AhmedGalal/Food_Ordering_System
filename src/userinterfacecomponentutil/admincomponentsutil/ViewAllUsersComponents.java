@@ -1,8 +1,8 @@
 package userinterfacecomponentutil.admincomponentsutil;
 
-import dataloaders.user.UserDataDummyLoader;
-import dataloaders.user.UserDataLoader;
-import dataloaders.user.UserType;
+import datahandlers.users.UserDataDummyHandler;
+import datahandlers.users.UserDataHandler;
+import datahandlers.users.UserType;
 import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
 import users.User;
@@ -22,9 +22,9 @@ public class ViewAllUsersComponents extends UserInterfaceComponent
         Logger logger = Logger.getInstance(null);
         User user = logger.getUser();
 
-        UserDataLoader userDataLoader = new UserDataDummyLoader(user);
-        userDataLoader.loadAllData();
-        ArrayList<String> usersData = userDataLoader.getAllUsersData(UserType.NORMAL);
+        UserDataHandler userDataHandler = new UserDataDummyHandler(user);
+        userDataHandler.loadAllData();
+        ArrayList<String> usersData = userDataHandler.getAllUsersData(UserType.NORMAL);
 
         for(String userData : usersData)
             System.out.println(userData);

@@ -1,14 +1,14 @@
 package userinterfacecomponentcollectingutil;
 
-import dataloaders.admininterfaceutil.AdminInterfaceDataLoader;
-import dataloaders.admininterfaceutil.AdminInterfaceDummyDataLoader;
+import datahandlers.admininterfaceutil.AdminInterfaceDataHandler;
+import datahandlers.admininterfaceutil.AdminInterfaceDummyDataHandler;
 
 public class AdminInterface extends UserInterfaceCollector
 {
     public AdminInterface()
     {
         super();
-        AdminInterfaceDataLoader adminInterfaceDataLoader = new AdminInterfaceDummyDataLoader(this);
+        AdminInterfaceDataHandler adminInterfaceDataLoader = new AdminInterfaceDummyDataHandler(this);
         adminInterfaceDataLoader.loadAllData();
     }
 

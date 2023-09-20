@@ -1,14 +1,13 @@
 package userinterfacecomponentutil.maininterfaceutil;
 
-import dataloaders.user.UserDataDummyLoader;
-import dataloaders.user.UserDataLoader;
+import datahandlers.users.UserDataDummyHandler;
+import datahandlers.users.UserDataHandler;
 import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
 import users.OnlineRestaurant;
 import users.OnsiteRestaurant;
 import users.User;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -67,8 +66,8 @@ public class RestaurantJoiningComponent extends UserInterfaceComponent
         }
 
         Logger logger = Logger.getInstance(null);
-        UserDataLoader dataLoader = new UserDataDummyLoader(user); //needs Factory
+        UserDataHandler dataLoader = new UserDataDummyHandler(user); //needs Factory
 
-        logger.signUp(dataLoader);
+        logger.signUp();
     }
 }

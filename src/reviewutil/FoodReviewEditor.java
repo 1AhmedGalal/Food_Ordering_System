@@ -1,12 +1,12 @@
 package reviewutil;
 
-import dataloaders.DataLoader;
+import datahandlers.DataHandler;
 import users.User;
 
 public class FoodReviewEditor extends ReviewsEditor
 {
-    public FoodReviewEditor(User user, DataLoader dataLoader)
+    public FoodReviewEditor(User user, DataHandler dataHandler)
     {
-        super(user, dataLoader);
+        super(user, dataHandler);
     }
 }

@@ -1,7 +1,7 @@
 package userinterfacecomponentutil.maininterfaceutil;
 
-import dataloaders.user.UserDataDummyLoader;
-import dataloaders.user.UserDataLoader;
+import datahandlers.users.UserDataDummyHandler;
+import datahandlers.users.UserDataHandler;
 import logger.Logger;
 import userinterfacecomponentutil.UserInterfaceComponent;
 import users.User;
@@ -20,7 +20,7 @@ public class DeleteAccountComponent extends UserInterfaceComponent
         User user = logger.getUser();
         logger.signOut();
 
-        UserDataLoader userDataLoader = new UserDataDummyLoader(user);
-        userDataLoader.removeObject(user);
+        UserDataHandler userDataHandler = new UserDataDummyHandler(user);
+        userDataHandler.removeObject(user);
     }
 }

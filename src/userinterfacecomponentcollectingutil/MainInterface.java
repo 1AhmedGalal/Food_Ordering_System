@@ -1,7 +1,7 @@
 package userinterfacecomponentcollectingutil;
 
-import dataloaders.maininterfaceutil.MainInterfaceDataLoader;
-import dataloaders.maininterfaceutil.MainInterfaceDummyDataLoader;
+import datahandlers.maininterfaceutil.MainInterfaceDataHandler;
+import datahandlers.maininterfaceutil.MainInterfaceDummyDataHandler;
 import logger.Logger;
 import users.Admin;
 import users.Restaurant;
@@ -14,7 +14,7 @@ public class MainInterface extends UserInterfaceCollector
     public MainInterface()
     {
         super();
-        MainInterfaceDataLoader mainInterfaceDataLoader = new MainInterfaceDummyDataLoader(this);
+        MainInterfaceDataHandler mainInterfaceDataLoader = new MainInterfaceDummyDataHandler(this);
         mainInterfaceDataLoader.loadAllData();
     }
 
@@ -43,9 +43,10 @@ public class MainInterface extends UserInterfaceCollector
             }
 
             UserInterfaceCollector userInterfaceCollector = null;
-            Logger logger = Logger.getInstance(null);
-            User user = logger.getUser();
+            //Logger logger = Logger.getInstance(null);
+           // User user = logger.getUser();
 
+            User user = null;
             if(user instanceof Admin)
                 userInterfaceCollector = new AdminInterface();
             else if(user instanceof Restaurant)

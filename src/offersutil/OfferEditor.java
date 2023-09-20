@@ -1,6 +1,6 @@
 package offersutil;
 
-import dataloaders.DataLoader;
+import datahandlers.DataHandler;
 import foodutil.Food;
 import users.Restaurant;
 import users.User;
@@ -11,14 +11,14 @@ public abstract class OfferEditor
 {
     Restaurant restaurant;
     ArrayList<Offer> offers;
-    DataLoader dataLoader;
+    DataHandler dataHandler;
 
-    public OfferEditor(Restaurant restaurant, DataLoader dataLoader)
+    public OfferEditor(Restaurant restaurant, DataHandler dataHandler)
     {
         this.restaurant = restaurant;
-        this.dataLoader = dataLoader;
+        this.dataHandler = dataHandler;
         offers = new ArrayList<>();
-        dataLoader.loadAllData();
+        dataHandler.loadAllData();
     }
 
     public void addDiscount(Food food, double percentage)

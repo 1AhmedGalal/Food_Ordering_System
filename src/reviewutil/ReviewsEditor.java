@@ -1,6 +1,6 @@
 package reviewutil;
 
-import dataloaders.DataLoader;
+import datahandlers.DataHandler;
 import users.Restaurant;
 import users.User;
 import java.util.ArrayList;
@@ -9,14 +9,14 @@ public abstract class ReviewsEditor
 {
     User user;
     ArrayList<Review> reviews;
-    DataLoader dataLoader;
+    DataHandler dataHandler;
 
-    public ReviewsEditor(User user, DataLoader dataLoader)
+    public ReviewsEditor(User user, DataHandler dataHandler)
     {
         this.user = user;
-        this.dataLoader = dataLoader;
+        this.dataHandler = dataHandler;
         this.reviews = new ArrayList<>();
-        dataLoader.loadAllData();
+        dataHandler.loadAllData();
     }
 
     public void addReview(User user, Restaurant restaurant, String header, String details, double rating)

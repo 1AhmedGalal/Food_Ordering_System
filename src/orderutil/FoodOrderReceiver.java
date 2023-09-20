@@ -1,12 +1,12 @@
 package orderutil;
 
-import dataloaders.DataLoader;
+import datahandlers.DataHandler;
 import users.User;
 
 public class FoodOrderReceiver extends OrderReceiver
 {
-    public FoodOrderReceiver(DataLoader dataLoader, User user)
+    public FoodOrderReceiver(DataHandler dataHandler, User user)
     {
-        super(dataLoader, user);
+        super(dataHandler, user);
     }
 }

@@ -36,8 +36,15 @@ public abstract class UserInterfaceCollector
                 System.out.println(e.getMessage());
                 System.out.println("------------------------");
             }
+            Logger logger = null;
+            try {
+                logger = Logger.getInstance(null); //this means that the user logged out
 
-            Logger logger = Logger.getInstance(null); //this means that the user logged out
+            }
+            catch (Exception e)
+            {
+
+            }
             if(logger.getUser() == null)
                 break;
         }

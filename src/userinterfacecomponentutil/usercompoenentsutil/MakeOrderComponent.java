@@ -1,9 +1,9 @@
 package userinterfacecomponentutil.usercompoenentsutil;
 
-import dataloaders.DataLoader;
-import dataloaders.orderutil.OrderDummyDataLoader;
-import dataloaders.user.UserDataDummyLoader;
-import dataloaders.user.UserDataLoader;
+import datahandlers.DataHandler;
+import datahandlers.orderutil.OrderDummyDataHandler;
+import datahandlers.users.UserDataDummyHandler;
+import datahandlers.users.UserDataHandler;
 import foodutil.Food;
 import logger.Logger;
 import menuutil.Menu;
@@ -39,8 +39,8 @@ public class MakeOrderComponent extends UserInterfaceComponent
         input = scanner.next();
 
         Restaurant restaurant = (Restaurant) new OnlineRestaurant(input, null ,null);
-        UserDataLoader userDataLoader = new UserDataDummyLoader(restaurant);
-        restaurant = (Restaurant) userDataLoader.loadFullObject();
+        UserDataHandler userDataHandler = new UserDataDummyHandler(restaurant);
+        restaurant = (Restaurant) userDataHandler.loadFullObject();
 
         Menu menu = null; ///needs fix
         ArrayList<String> menuItems = menu.getItemsNames();
@@ -63,8 +63,8 @@ public class MakeOrderComponent extends UserInterfaceComponent
         String id = user.getPhone()+restaurant.getPhone();
         Order order = new FoodOrder(user, restaurant, foods, id);
 
-        DataLoader dataLoader = new OrderDummyDataLoader(user);
-        OrderReceiver orderReceiver = new FoodOrderReceiver(dataLoader, user);
+        DataHandler dataHandler = new OrderDummyDataHandler(user);
+        OrderReceiver orderReceiver = new FoodOrderReceiver(dataHandler, user);
         orderReceiver.AddOrder(order);
     }
 }

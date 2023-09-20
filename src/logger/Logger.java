@@ -1,6 +1,5 @@
 package logger;
-import dataloaders.DataLoader;
-import dataloaders.user.UserDataLoader;
+import datahandlers.users.UserDataHandler;
 import users.User;
 
 public class Logger
@@ -9,50 +8,52 @@ public class Logger
 
     private User user;
 
-    private UserDataLoader userDataLoader;
+    private static UserDataHandler userDataHandler;
 
-    private Logger(UserDataLoader userDataLoader)
+    private Logger()
     {
         user = null;
-        this.userDataLoader = userDataLoader;
+        this.userDataHandler = null;
     }
 
-    public static Logger getInstance(UserDataLoader userDataLoader)
+    public static Logger getInstance(UserDataHandler userDataHandler) throws LoggingException
     {
+        if(userDataHandler == null)
+            throw new LoggingException("No Data Handler Found");
+
         if(instance == null)
-            instance = new Logger(userDataLoader);
+            instance = new Logger();
+
+        Logger.userDataHandler = userDataHandler;
+        userDataHandler.loadAllData();
 
         return instance;
     }
 
-    public void signIn(UserDataLoader dataLoader) throws LoggingException
+    public void signIn() throws LoggingException
     {
-        dataLoader.loadAllData();
-
-        if(userFound())
+        if(userLoggedIn())
             throw new LoggingException("A user is already logged in");
-        else if(!dataLoader.userExists())
+        else if(!userDataHandler.userExists())
             throw new LoggingException("User not found");
 
-        this.user = (User) dataLoader.loadFullObject();
+        this.user = (User) userDataHandler.loadFullObject();
     }
 
-    public void signUp(UserDataLoader dataLoader) throws LoggingException
+    public void signUp() throws LoggingException
     {
-        dataLoader.loadAllData();
-
-        if(userFound())
+        if(userLoggedIn())
             throw new LoggingException("A user is already logged in");
-        else if(dataLoader.userPhoneExists())
+        else if(userDataHandler.userPhoneExists())
             throw new LoggingException("User already exists");
 
-        dataLoader.saveObject(dataLoader.getUser());
-        this.user = (User) dataLoader.loadFullObject();
+        userDataHandler.saveObject(userDataHandler.getUser());
+        this.user = (User) userDataHandler.loadFullObject();
     }
 
     public void signOut() throws LoggingException
     {
-        if(!userFound())
+        if(!userLoggedIn())
             throw new LoggingException("No User Exists");
 
         user = null;
@@ -60,9 +61,9 @@ public class Logger
 
     public User getUser()
     {
-        return (this.user);
+        return this.user;
     }
-    private boolean userFound()
+    private boolean userLoggedIn()
     {
         return (this.user != null);
     }
