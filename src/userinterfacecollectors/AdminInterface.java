@@ -1,15 +1,18 @@
 package userinterfacecollectors;
 
 import datahandlers.DataHandlerException;
-import datahandlers.admininterfaceutil.AdminInterfaceDataHandler;
-import datahandlers.admininterfaceutil.AdminInterfaceDummyDataHandler;
+import datahandlers.admininterface.AdminInterfaceDataHandler;
+import datahandlers.admininterface.AdminInterfaceDataHandlerFactory;
+import datahandlers.admininterface.AdminInterfaceDummyDataHandler;
 
 public class AdminInterface extends UserInterfaceCollector
 {
-    public AdminInterface() throws DataHandlerException {
+    public AdminInterface() throws DataHandlerException
+    {
         super();
-        AdminInterfaceDataHandler adminInterfaceDataLoader = new AdminInterfaceDummyDataHandler(this);
-        adminInterfaceDataLoader.loadAllData();
+        AdminInterfaceDataHandlerFactory adminInterfaceDataHandlerFactory = new AdminInterfaceDataHandlerFactory(this);
+        AdminInterfaceDataHandler adminInterfaceDataHandler = (AdminInterfaceDataHandler) adminInterfaceDataHandlerFactory.createDataHandler();
+        adminInterfaceDataHandler.loadAllData();
     }
 
 }

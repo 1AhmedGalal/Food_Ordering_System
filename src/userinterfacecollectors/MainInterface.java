@@ -2,11 +2,12 @@ package userinterfacecollectors;
 
 import datahandlers.DataHandlerException;
 import datahandlers.DataHandlerFactory;
-import datahandlers.maininterfaceutil.MainInterfaceDataHandler;
-import datahandlers.maininterfaceutil.MainInterfaceDummyDataHandler;
+import datahandlers.maininterface.MainInterfaceDataHandler;
+import datahandlers.maininterface.MainInterfaceDummyDataHandler;
+import datahandlers.maininterface.MainInterfaceFileDataHandler;
+import datahandlers.maininterface.UserInterfaceDataHandlerFactory;
 import datahandlers.users.UserDataHandler;
 import datahandlers.users.UserDataHandlerFactory;
-import datahandlers.users.UserFileHandler;
 import logger.Logger;
 import users.Admin;
 import users.Restaurant;
@@ -19,7 +20,8 @@ public class MainInterface extends UserInterfaceCollector
     public MainInterface() throws DataHandlerException
     {
         super();
-        MainInterfaceDataHandler mainInterfaceDataLoader = new MainInterfaceDummyDataHandler(this);
+        UserInterfaceDataHandlerFactory userInterfaceDataHandlerFactory = new UserInterfaceDataHandlerFactory(this);
+        MainInterfaceDataHandler mainInterfaceDataLoader = (MainInterfaceDataHandler) userInterfaceDataHandlerFactory.createDataHandler();
         mainInterfaceDataLoader.loadAllData();
     }
 

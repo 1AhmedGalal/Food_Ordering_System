@@ -1,15 +1,18 @@
 package userinterfacecollectors;
 
-import datahandlers.restaurantinterfaceutil.RestaurantInterfaceDataHandler;
-import datahandlers.restaurantinterfaceutil.RestaurantInterfaceDummyDataHandler;
+import datahandlers.DataHandlerException;
+import datahandlers.restrauntinterface.RestaurantInterfaceDataHandler;
+import datahandlers.restrauntinterface.RestaurantInterfaceDataHandlerFactory;
+import datahandlers.restrauntinterface.RestaurantInterfaceDummyDataHandler;
 
 public class RestaurantInterface extends UserInterfaceCollector
 {
-    public RestaurantInterface()
+    public RestaurantInterface() throws DataHandlerException
     {
         super();
-        RestaurantInterfaceDataHandler restaurantInterfaceDataLoader = new RestaurantInterfaceDummyDataHandler(this);
-        //restaurantInterfaceDataLoader.loadAllData();
+        RestaurantInterfaceDataHandlerFactory restaurantInterfaceDataHandlerFactory = new RestaurantInterfaceDataHandlerFactory(this);
+        RestaurantInterfaceDataHandler restaurantInterfaceDataHandler = (RestaurantInterfaceDataHandler) restaurantInterfaceDataHandlerFactory.createDataHandler();
+        restaurantInterfaceDataHandler.loadAllData();
     }
 
 }

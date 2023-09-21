@@ -24,7 +24,7 @@ Beefy
 147
 147
 =
-NORMAL
+ADMIN
 Galal
 789
 789

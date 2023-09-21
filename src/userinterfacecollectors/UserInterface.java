@@ -1,13 +1,16 @@
 package userinterfacecollectors;
 
 import datahandlers.DataHandlerException;
-import datahandlers.userinterfaceutil.UserInterfaceDataHandler;
-import datahandlers.userinterfaceutil.UserInterfaceDummyDataHandler;
+import datahandlers.userinterface.UserInterfaceDataHandler;
+import datahandlers.userinterface.UserInterfaceDataHandlerFactory;
+import datahandlers.userinterface.UserInterfaceDummyDataHandler;
 public class UserInterface extends UserInterfaceCollector
 {
-    public UserInterface() throws DataHandlerException {
+    public UserInterface() throws DataHandlerException
+    {
         super();
-        UserInterfaceDataHandler userInterfaceDataLoader = new UserInterfaceDummyDataHandler(this);
+        UserInterfaceDataHandlerFactory userInterfaceDataHandlerFactory = new UserInterfaceDataHandlerFactory(this);
+        UserInterfaceDataHandler userInterfaceDataLoader = (UserInterfaceDataHandler) userInterfaceDataHandlerFactory.createDataHandler();
         userInterfaceDataLoader.loadAllData();
     }
 }
