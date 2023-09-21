@@ -44,6 +44,7 @@ public class MainInterface extends UserInterfaceCollector
                 System.out.println("-------------------------");
                 System.out.println(e.getMessage());
                 System.out.println("------------------------");
+                continue;
             }
 
             UserDataHandler userDataHandler = new UserFileHandler(null);

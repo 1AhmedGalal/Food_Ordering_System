@@ -6,6 +6,7 @@ import users.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
+import java.util.Set;
 
 public class UserFileHandler extends UserDataHandler
 {
@@ -27,10 +28,11 @@ public class UserFileHandler extends UserDataHandler
             BufferedWriter writer = new BufferedWriter(new FileWriter("users.txt"));
             writer.write("=");
 
-            for (int i = 0; i < users.size(); i++)
+            Set<String> setOfPhones = users.keySet();
+            for(String phone : setOfPhones)
             {
-                User user = users.get(i);
-                UserType userType = userTypes.get(i);
+                User user = users.get(phone);
+                UserType userType = userTypes.get(phone);
 
                 writer.write("\n" + userType.toString());
                 writer.write("\n" + user.getName());
@@ -59,18 +61,21 @@ public class UserFileHandler extends UserDataHandler
         {
             BufferedReader reader = new BufferedReader(new FileReader("users.txt"));
             String line;
+
             User user = null;
             UserType userType = null;
+            String phone = null;
 
             int cnt = 0;
+
             while((line = reader.readLine()) != null)
             {
                 if(line.equals("="))
                 {
                     if(cnt != 0) //makes sure that this "=" is not the beginning of the file
                     {
-                        users.add(user);
-                        userTypes.add(userType);
+                        users.put(phone, user);
+                        userTypes.put(phone, userType);
                     }
 
                     cnt = 0;
@@ -108,6 +113,7 @@ public class UserFileHandler extends UserDataHandler
                         break;
 
                     case 2:
+                        phone = line;
                         user.setPhone(line);
                         break;
 
@@ -124,10 +130,7 @@ public class UserFileHandler extends UserDataHandler
 
             reader.close();
         }
-        catch (IOException e)
-        {
-            throw new DataHandlerException(e.getMessage());
-        } catch (UserException e)
+        catch (Exception e)
         {
             throw new DataHandlerException(e.getMessage());
         }
@@ -150,8 +153,9 @@ public class UserFileHandler extends UserDataHandler
         else
             userType = UserType.ADMIN;
 
-        users.add(user);
-        userTypes.add(userType);
+        String phone = user.getPhone();
+        users.put(phone, user);
+        userTypes.put(phone, userType);
 
         saveAllData();
     }
@@ -162,17 +166,11 @@ public class UserFileHandler extends UserDataHandler
         User user = (User) object;
         String phone = user.getPhone();
 
-        for(User currentUser : users)
-        {
-            if(currentUser.getPhone().equals(phone))
-            {
-                users.remove(currentUser);
-                saveAllData();
-                return;
-            }
-        }
+        if(!userPhoneExists())
+            throw new DataHandlerException("User Not Found");
 
-        throw new DataHandlerException("User Not Found");
+        users.remove(phone);
+        saveAllData();
     }
 
     @Override
@@ -180,27 +178,17 @@ public class UserFileHandler extends UserDataHandler
     {
         String phone = user.getPhone();
 
-        for(User currentUser : users)
-        {
-            if(currentUser.getPhone().equals(phone))
-                return currentUser;
-        }
+        if(!userPhoneExists())
+            throw new DataHandlerException("User Not Found");
 
-        throw new DataHandlerException("User Not Found");
+        return users.get(phone);
     }
 
     @Override
     public boolean userPhoneExists()
     {
         String phone = user.getPhone();
-
-        for(User currentUser : users)
-        {
-            if(currentUser.getPhone().equals(phone))
-                return true;
-        }
-
-        return false;
+        return users.containsKey(phone);
     }
 
     @Override
@@ -209,13 +197,11 @@ public class UserFileHandler extends UserDataHandler
         String phone = user.getPhone();
         String password = user.getPassword();
 
-        for(User currentUser : users)
-        {
-            if(currentUser.getPhone().equals(phone) && currentUser.getPassword().equals(password))
-                return true;
-        }
+        if(!userPhoneExists())
+            return false;
 
-        return false;
+        User currentUser = users.get(phone);
+        return currentUser.getPassword().equals(password);
     }
 
     private void clearFile() throws DataHandlerException

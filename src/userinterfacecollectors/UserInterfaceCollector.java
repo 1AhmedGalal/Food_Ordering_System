@@ -104,10 +104,13 @@ public abstract class UserInterfaceCollector
 
                 if(choice == 1)
                     isRequested = true;
+                else
+                    throw new RequestException("");
             }
 
         }
         while (isRequested);
+
     }
 
     protected boolean isValidRequest(int componentNumber)
