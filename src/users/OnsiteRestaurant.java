@@ -11,6 +11,11 @@ public class OnsiteRestaurant extends Restaurant
     {
         super();
     }
+
+    public OnsiteRestaurant(String phone) throws UserException
+    {
+        super(phone);
+    }
     public OnsiteRestaurant(Restaurant restaurant)
     {
         super(restaurant);

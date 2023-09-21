@@ -1,4 +1,4 @@
-package userinterfacecomponents.admincomponentsutil;
+package userinterfacecomponents.admincomponents;
 
 import datahandlers.DataHandlerFactory;
 import datahandlers.users.UserDataHandler;
@@ -9,10 +9,10 @@ import users.User;
 
 import java.util.Scanner;
 
-public class BanUserComponent extends UserInterfaceComponent
+public class RemoveUserComponent extends UserInterfaceComponent
 {
 
-    public BanUserComponent(String message)
+    public RemoveUserComponent(String message)
     {
         super(message);
     }
@@ -25,9 +25,11 @@ public class BanUserComponent extends UserInterfaceComponent
         System.out.println("Enter User's Phone : ");
         String phone = scanner.next();
 
-        User user = new NormalUser(phone, null);
+        User user = new NormalUser(phone);
+
         DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(user);
         UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
+        userDataHandler.loadAllData();
         userDataHandler.removeObject(user);
     }
 }

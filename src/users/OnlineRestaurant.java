@@ -9,6 +9,11 @@ public class OnlineRestaurant extends Restaurant
         super();
     }
 
+    public OnlineRestaurant(String phone) throws UserException
+    {
+        super(phone);
+    }
+
     public OnlineRestaurant(String phone, String password) throws UserException
     {
         super(phone, password);

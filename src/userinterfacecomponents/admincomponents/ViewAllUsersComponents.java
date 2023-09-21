@@ -1,4 +1,4 @@
-package userinterfacecomponents.admincomponentsutil;
+package userinterfacecomponents.admincomponents;
 
 import datahandlers.DataHandlerFactory;
 import datahandlers.users.UserDataHandler;
@@ -10,9 +10,9 @@ import users.User;
 
 import java.util.ArrayList;
 
-public class ViewAllRestaurantsComponent extends UserInterfaceComponent
+public class ViewAllUsersComponents extends UserInterfaceComponent
 {
-    public ViewAllRestaurantsComponent(String message)
+    public ViewAllUsersComponents(String message)
     {
         super(message);
     }
@@ -20,14 +20,12 @@ public class ViewAllRestaurantsComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance(null);
-        User user = logger.getUser();
 
-        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(user);
+        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
         UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
         userDataHandler.loadAllData();
-        ArrayList<String> usersData = userDataHandler.getAllUsersData(UserType.ONSITE_RESTAURANT);
 
+        ArrayList<String> usersData = userDataHandler.getAllUsersData(UserType.NORMAL);
         for(String userData : usersData)
             System.out.println(userData);
     }

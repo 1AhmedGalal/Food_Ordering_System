@@ -2,9 +2,9 @@ package datahandlers.admininterface;
 
 import userinterfacecollectors.AdminInterface;
 import userinterfacecomponents.UserInterfaceComponent;
-import userinterfacecomponents.admincomponentsutil.BanUserComponent;
-import userinterfacecomponents.admincomponentsutil.ViewAllRestaurantsComponent;
-import userinterfacecomponents.admincomponentsutil.ViewAllUsersComponents;
+import userinterfacecomponents.admincomponents.RemoveUserComponent;
+import userinterfacecomponents.admincomponents.ViewAllRestaurantsComponent;
+import userinterfacecomponents.admincomponents.ViewAllUsersComponents;
 import userinterfacecomponents.maininterfacecomponents.SignOutComponent;
 
 public class AdminInterfaceDummyDataHandler extends AdminInterfaceDataHandler
@@ -23,7 +23,7 @@ public class AdminInterfaceDummyDataHandler extends AdminInterfaceDataHandler
     @Override
     public void loadAllData()
     {
-        UserInterfaceComponent userInterfaceComponent = new BanUserComponent("Ban user");
+        UserInterfaceComponent userInterfaceComponent = new RemoveUserComponent("Remove user/restaurant");
         adminInterface.addComponent(userInterfaceComponent);
 
         userInterfaceComponent = new ViewAllUsersComponents("View all users");

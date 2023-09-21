@@ -1,4 +1,9 @@
 =
+ONLINE_RESTAURANT
+4
+4
+4
+=
 NORMAL
 Ahmed
 12
@@ -8,11 +13,6 @@ NORMAL
 36
 36
 36
-=
-NORMAL
-11
-11
-11
 =
 NORMAL
 Ahmed

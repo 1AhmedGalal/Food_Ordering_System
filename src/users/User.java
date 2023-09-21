@@ -14,6 +14,14 @@ public abstract class User
         password = null;
     }
 
+    public User(String phone) throws UserException
+    {
+        if(phone == null)
+            throw new UserException("Invalid Data");
+
+        this.phone = phone;
+    }
+
     public User(String name, String phone, String password) throws UserException
     {
         if(name == null || phone == null || password == null)

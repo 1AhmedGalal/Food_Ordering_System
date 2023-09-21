@@ -9,6 +9,11 @@ public abstract class Restaurant extends User
         super();
     }
 
+    public Restaurant(String phone) throws UserException
+    {
+        super(phone);
+    }
+
     public Restaurant(String phone, String password) throws UserException
     {
         super(phone, password);

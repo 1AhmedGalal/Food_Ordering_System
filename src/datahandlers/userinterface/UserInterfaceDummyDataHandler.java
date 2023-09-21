@@ -2,7 +2,7 @@ package datahandlers.userinterface;
 
 import userinterfacecollectors.UserInterface;
 import userinterfacecomponents.UserInterfaceComponent;
-import userinterfacecomponents.admincomponentsutil.ViewAllRestaurantsComponent;
+import userinterfacecomponents.admincomponents.ViewAllRestaurantsComponent;
 import userinterfacecomponents.maininterfacecomponents.SignOutComponent;
 import userinterfacecomponents.restaurantmenucomponentutil.CancelOrderComponent;
 import userinterfacecomponents.usercompoenentsutil.MakeOrderComponent;

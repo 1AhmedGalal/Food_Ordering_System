@@ -7,6 +7,11 @@ public class NormalUser extends User
         super();
     }
 
+    public NormalUser(String phone) throws UserException
+    {
+        super(phone);
+    }
+
     public NormalUser(String phone, String password) throws UserException
     {
         super(phone, password);
