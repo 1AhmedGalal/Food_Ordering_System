@@ -1,9 +1,11 @@
 package userinterfacecollectors;
 
 import datahandlers.DataHandlerException;
+import datahandlers.DataHandlerFactory;
 import datahandlers.maininterfaceutil.MainInterfaceDataHandler;
 import datahandlers.maininterfaceutil.MainInterfaceDummyDataHandler;
 import datahandlers.users.UserDataHandler;
+import datahandlers.users.UserDataHandlerFactory;
 import datahandlers.users.UserFileHandler;
 import logger.Logger;
 import users.Admin;
@@ -47,7 +49,8 @@ public class MainInterface extends UserInterfaceCollector
                 continue;
             }
 
-            UserDataHandler userDataHandler = new UserFileHandler(null);
+            DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
+            UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
             Logger logger = Logger.getInstance(userDataHandler);
             User user = logger.getUser();
 

@@ -1,9 +1,10 @@
 package userinterfacecomponents.usercompoenentsutil;
 
 import datahandlers.DataHandler;
+import datahandlers.DataHandlerFactory;
 import datahandlers.orderutil.OrderDummyDataHandler;
-import datahandlers.users.UserDataDummyHandler;
 import datahandlers.users.UserDataHandler;
+import datahandlers.users.UserDataHandlerFactory;
 import foodutil.Food;
 import logger.Logger;
 import menuutil.Menu;
@@ -39,7 +40,8 @@ public class MakeOrderComponent extends UserInterfaceComponent
         input = scanner.next();
 
         Restaurant restaurant = (Restaurant) new OnlineRestaurant(input, null ,null);
-        UserDataHandler userDataHandler = new UserDataDummyHandler(restaurant);
+        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(restaurant);
+        UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
         restaurant = (Restaurant) userDataHandler.loadFullObject();
 
         Menu menu = null; ///needs fix

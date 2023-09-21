@@ -1,7 +1,8 @@
 package userinterfacecomponents.restaurantmenucomponentutil;
 
-import datahandlers.users.UserDataDummyHandler;
+import datahandlers.DataHandlerFactory;
 import datahandlers.users.UserDataHandler;
+import datahandlers.users.UserDataHandlerFactory;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnlineRestaurant;
@@ -45,9 +46,10 @@ public class TransformRestaurantComponent extends UserInterfaceComponent
             User user = logger.getUser();
             logger.signOut();
 
-            UserDataHandler dataLoader = new UserDataDummyHandler(user);
-            dataLoader.loadAllData();
-            dataLoader.removeObject(user);
+            DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(user);
+            UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
+            userDataHandler.loadAllData();
+            userDataHandler.removeObject(user);
 
             Restaurant restaurant;
             if(currentType.equals("online"))
@@ -55,7 +57,7 @@ public class TransformRestaurantComponent extends UserInterfaceComponent
             else
                 restaurant = new OnlineRestaurant((Restaurant) user);
 
-            dataLoader.saveObject(restaurant);
+            userDataHandler.saveObject(restaurant);
             logger.signIn();
 
         }

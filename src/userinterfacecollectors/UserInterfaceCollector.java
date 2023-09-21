@@ -1,7 +1,9 @@
 package userinterfacecollectors;
 
 import datahandlers.DataHandlerException;
+import datahandlers.DataHandlerFactory;
 import datahandlers.users.UserDataHandler;
+import datahandlers.users.UserDataHandlerFactory;
 import datahandlers.users.UserFileHandler;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
@@ -42,7 +44,8 @@ public abstract class UserInterfaceCollector
 
             try
             {
-                UserDataHandler userDataHandler = new UserFileHandler(null);
+                DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
+                UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
                 logger = Logger.getInstance(userDataHandler);
 
                 if(logger.getUser() == null) //this means that the user logged out

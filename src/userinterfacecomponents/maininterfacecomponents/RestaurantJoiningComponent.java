@@ -1,7 +1,8 @@
 package userinterfacecomponents.maininterfacecomponents;
 
-import datahandlers.users.UserDataDummyHandler;
+import datahandlers.DataHandlerFactory;
 import datahandlers.users.UserDataHandler;
+import datahandlers.users.UserDataHandlerFactory;
 import datahandlers.users.UserFileHandler;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
@@ -66,7 +67,8 @@ public class RestaurantJoiningComponent extends UserInterfaceComponent
             user = new OnlineRestaurant(name, phone, password);
         }
 
-        UserDataHandler userDataHandler = new UserFileHandler(user); //needs Factory
+        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
+        UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
         Logger logger = Logger.getInstance(userDataHandler);
 
         logger.signUp();

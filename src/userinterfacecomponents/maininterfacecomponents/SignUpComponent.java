@@ -1,7 +1,8 @@
 package userinterfacecomponents.maininterfacecomponents;
 
-import datahandlers.users.UserDataDummyHandler;
+import datahandlers.DataHandlerFactory;
 import datahandlers.users.UserDataHandler;
+import datahandlers.users.UserDataHandlerFactory;
 import datahandlers.users.UserFileHandler;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
@@ -35,7 +36,8 @@ public class SignUpComponent extends UserInterfaceComponent
         password = scanner.next();
 
         User user = new NormalUser(name, phone, password);
-        UserDataHandler userDataHandler = new UserFileHandler(user); //needs Factory
+        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(user);
+        UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
         Logger logger = Logger.getInstance(userDataHandler);
 
         logger.signUp();

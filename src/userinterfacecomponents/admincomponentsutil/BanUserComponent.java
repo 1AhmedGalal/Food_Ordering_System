@@ -1,7 +1,8 @@
 package userinterfacecomponents.admincomponentsutil;
 
-import datahandlers.users.UserDataDummyHandler;
+import datahandlers.DataHandlerFactory;
 import datahandlers.users.UserDataHandler;
+import datahandlers.users.UserDataHandlerFactory;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.NormalUser;
 import users.User;
@@ -25,8 +26,8 @@ public class BanUserComponent extends UserInterfaceComponent
         String phone = scanner.next();
 
         User user = new NormalUser(phone, null);
-        UserDataHandler userDataHandler = new UserDataDummyHandler(user);
-
+        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(user);
+        UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
         userDataHandler.removeObject(user);
     }
 }

@@ -17,7 +17,7 @@ public abstract class UserDataHandler implements DataHandler
     protected Hashtable<String, User> users; // a lot of adding and removing is needed as well as fast lookups
     protected Hashtable<String, UserType> userTypes; // a lot of adding and removing is needed as well as fast lookups/
 
-    public UserDataHandler(User user)
+    UserDataHandler(User user)
     {
         this.user = user;
         users = new Hashtable<>();

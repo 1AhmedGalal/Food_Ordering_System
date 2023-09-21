@@ -10,7 +10,7 @@ import java.util.Set;
 
 public class UserFileHandler extends UserDataHandler
 {
-    public UserFileHandler(User user)
+    UserFileHandler(User user)
     {
         super(user);
     }
