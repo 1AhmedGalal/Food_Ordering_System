@@ -1,4 +1,4 @@
-package pricesutil;
+package pricecalculator;
 
 public class CalculationException extends Exception
 {

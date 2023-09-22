@@ -65,9 +65,6 @@ public class UserFileHandler extends UserDataHandler
     @Override
     public void loadAllData() throws DataHandlerException
     {
-        if(allDataLoaded)
-            return;
-
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("users.txt"));

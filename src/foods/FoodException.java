@@ -1,4 +1,4 @@
-package foodutil;
+package foods;
 
 public class FoodException extends Exception
 {

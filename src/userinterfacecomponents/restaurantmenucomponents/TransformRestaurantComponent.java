@@ -53,11 +53,12 @@ public class TransformRestaurantComponent extends UserInterfaceComponent
             UserDataHandlerFactory userDataHandlerFactory = new UserDataHandlerFactory();
             UserDataHandler userDataHandler = (UserDataHandler) userDataHandlerFactory.createDataHandler();
 
-            userDataHandler.setObject(user);
+            userDataHandler.loadAllData();
+            userDataHandler.setObject(restaurant);
             userDataHandler.updateObject();
 
             logger.signOut();
-            logger.signIn(user);
+            logger.signIn(restaurant);
         }
 
     }

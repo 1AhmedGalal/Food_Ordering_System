@@ -1,9 +1,6 @@
 package datahandlers.menuutil;
 
 import datahandlers.DataHandlerException;
-import foodutil.Drink;
-import foodutil.Food;
-import foodutil.MainDish;
 import users.Restaurant;
 
 public class MenuDummyDataHandler extends MenuDataHandler
@@ -26,25 +23,25 @@ public class MenuDummyDataHandler extends MenuDataHandler
     @Override
     public void loadAllData()
     {
-        Food food = new MainDish("Pizza", "Small", "Cheese pizza", 195.9);
-        try
-        {
-            menu.addItem(food);
-        }
-        catch (Exception e)
-        {
-            e.getMessage();
-        }
-
-        food = new Drink("Tea", "Large", "Red Tea", 1.9, "Glass");
-        try
-        {
-            menu.addItem(food);
-        }
-        catch (Exception e)
-        {
-            e.getMessage();
-        }
+//        Food food = new MainDish("","Pizza", "Small", "Cheese pizza", 195.9);
+//        try
+//        {
+//            menu.addItem(food);
+//        }
+//        catch (Exception e)
+//        {
+//            e.getMessage();
+//        }
+//
+//        food = new Drink("Tea", "Large", "Red Tea", 1.9, "Glass");
+//        try
+//        {
+//            menu.addItem(food);
+//        }
+//        catch (Exception e)
+//        {
+//            e.getMessage();
+//        }
     }
 
     @Override

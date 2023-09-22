@@ -1,8 +1,8 @@
-package offersutil;
+package offers;
 
 import datahandlers.DataHandler;
 import datahandlers.DataHandlerException;
-import foodutil.Food;
+import foods.Food;
 import users.Restaurant;
 import users.User;
 
@@ -23,8 +23,8 @@ public abstract class OfferEditor
 
     public void addDiscount(Food food, double percentage)
     {
-        Offer offer = new Discount(restaurant, percentage, food);
-        offers.add(offer);
+        //Offer offer = new Discount(restaurant, percentage, food);
+       // offers.add(offer);
     }
 
     public void editDiscount(Food food, double percentage)

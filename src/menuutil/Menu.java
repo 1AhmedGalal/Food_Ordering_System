@@ -1,12 +1,13 @@
 package menuutil;
 
-import foodutil.Food;
+import foods.Food;
 
 import java.util.ArrayList;
 
 public abstract class Menu
 {
     ArrayList<Food> foods;
+
     public Menu()
     {
         foods = new ArrayList<>();

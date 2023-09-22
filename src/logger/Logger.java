@@ -17,8 +17,8 @@ public class Logger
     private Logger()
     {
         user = null;
-        userDataHandlerFactory = null;
-        userDataHandler = null;
+        userDataHandlerFactory = new UserDataHandlerFactory();
+        userDataHandler = (UserDataHandler) userDataHandlerFactory.createDataHandler();
     }
 
     public static Logger getInstance() throws Exception
@@ -26,12 +26,7 @@ public class Logger
         if(instance == null)
             instance = new Logger();
 
-        if(userDataHandler == null)
-        {
-            userDataHandlerFactory = new UserDataHandlerFactory();
-            userDataHandler = (UserDataHandler) userDataHandlerFactory.createDataHandler();
-            userDataHandler.loadAllData();
-        }
+        userDataHandler.loadAllData();
 
         return instance;
     }
@@ -61,10 +56,12 @@ public class Logger
         this.user = (User) userDataHandler.loadFullObject();
     }
 
-    public void signOut() throws LoggingException
+    public void signOut() throws Exception
     {
         if(!userLoggedIn())
             throw new LoggingException("No User Exists");
+
+        userDataHandler.loadAllData(); //needed if a restaurant changes its type
 
         user = null;
     }
