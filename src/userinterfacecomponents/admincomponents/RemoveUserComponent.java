@@ -27,9 +27,11 @@ public class RemoveUserComponent extends UserInterfaceComponent
 
         User user = new NormalUser(phone);
 
-        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(user);
+        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
         UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
+
+        userDataHandler.setObject(user);
         userDataHandler.loadAllData();
-        userDataHandler.removeObject(user);
+        userDataHandler.removeObject();
     }
 }

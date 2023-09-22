@@ -6,13 +6,16 @@ import users.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Set;
 
 public class UserFileHandler extends UserDataHandler
 {
-    UserFileHandler(User user)
+
+    public UserFileHandler()
     {
-        super(user);
+        super();
     }
 
     @Override
@@ -23,7 +26,7 @@ public class UserFileHandler extends UserDataHandler
 
         try
         {
-            clearFile();
+            clearFile(); //this is done to avoid duplicates
 
             BufferedWriter writer = new BufferedWriter(new FileWriter("users.txt"));
             writer.write("=");
@@ -38,6 +41,14 @@ public class UserFileHandler extends UserDataHandler
                 writer.write("\n" + user.getName());
                 writer.write("\n" + user.getPhone());
                 writer.write("\n" + user.getPassword());
+
+                if(user instanceof OnsiteRestaurant)
+                {
+                    LinkedList<String> sites = ((OnsiteRestaurant) user).getSites();
+                    for(String site : sites)
+                        writer.write("\n" + site);
+                }
+
                 writer.write("\n" + "=");
             }
 
@@ -65,6 +76,7 @@ public class UserFileHandler extends UserDataHandler
             User user = null;
             UserType userType = null;
             String phone = null;
+            ArrayList<String> tempContainer = null;
 
             int cnt = 0;
 
@@ -72,7 +84,7 @@ public class UserFileHandler extends UserDataHandler
             {
                 if(line.equals("="))
                 {
-                    if(cnt != 0) //makes sure that this "=" is not the beginning of the file
+                    if(cnt != 0) //makes sure that this "=" is not the beginning of the file but the end of a user
                     {
                         users.put(phone, user);
                         userTypes.put(phone, userType);
@@ -85,27 +97,8 @@ public class UserFileHandler extends UserDataHandler
                 switch (cnt)
                 {
                     case 0:
-                        if(line.equals("NORMAL"))
-                        {
-                            user = new NormalUser();
-                            userType = UserType.NORMAL;
-                        }
-                        else if(line.equals("ONLINE_RESTAURANT"))
-                        {
-                            user = new OnlineRestaurant();
-                            userType = UserType.ONLINE_RESTAURANT;
-
-                        }
-                        else if(line.equals("ONSITE_RESTAURANT"))
-                        {
-                            user = new OnsiteRestaurant();
-                            userType = UserType.ONSITE_RESTAURANT;
-                        }
-                        else
-                        {
-                            user = new Admin();
-                            userType = UserType.ADMIN;
-                        }
+                        user = makeUser(line);
+                        userType = makeUserType(line);
                         break;
 
                     case 1:
@@ -122,6 +115,8 @@ public class UserFileHandler extends UserDataHandler
                         break;
 
                     default:
+                        ///if extra lines are found then this is an onsite restaurant
+                        ((OnsiteRestaurant) user).addSite(line);
                         break;
                 }
 
@@ -139,9 +134,8 @@ public class UserFileHandler extends UserDataHandler
     }
 
     @Override
-    public void saveObject(Object object) throws DataHandlerException
+    public void saveObject() throws DataHandlerException
     {
-        User user = (User) object;
         UserType userType = null;
 
         if(user instanceof NormalUser)
@@ -161,16 +155,27 @@ public class UserFileHandler extends UserDataHandler
     }
 
     @Override
-    public void removeObject(Object object) throws DataHandlerException
+    public void removeObject() throws DataHandlerException
     {
-        User user = (User) object;
         String phone = user.getPhone();
 
-        if(!userPhoneExists())
+        if(!users.containsKey(phone))
             throw new DataHandlerException("User Not Found");
 
         users.remove(phone);
         saveAllData();
+    }
+
+    @Override
+    public void updateObject() throws DataHandlerException
+    {
+        String phone = user.getPhone();
+
+        if(!users.containsKey(phone))
+            throw new DataHandlerException("User Not Found");
+
+        removeObject();
+        saveObject();
     }
 
     @Override
@@ -219,5 +224,51 @@ public class UserFileHandler extends UserDataHandler
             throw new DataHandlerException(e.getMessage());
         }
 
+    }
+
+    private User makeUser(String line)
+    {
+        switch (line)
+        {
+            case "NORMAL" ->
+            {
+                return new NormalUser();
+            }
+            case "ONLINE_RESTAURANT" ->
+            {
+                return new OnlineRestaurant();
+            }
+            case "ONSITE_RESTAURANT" ->
+            {
+                return new OnsiteRestaurant();
+            }
+            default ->
+            {
+                return new Admin();
+            }
+        }
+    }
+
+    private UserType makeUserType(String line)
+    {
+        switch (line)
+        {
+            case "NORMAL" ->
+            {
+                return UserType.NORMAL;
+            }
+            case "ONLINE_RESTAURANT" ->
+            {
+                return UserType.ONLINE_RESTAURANT;
+            }
+            case "ONSITE_RESTAURANT" ->
+            {
+                return UserType.ONSITE_RESTAURANT;
+            }
+            default ->
+            {
+                return UserType.ADMIN;
+            }
+        }
     }
 }

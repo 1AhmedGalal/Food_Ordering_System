@@ -20,11 +20,12 @@ public class DeleteAccountComponent extends UserInterfaceComponent
         DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
         UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
 
-        Logger logger = Logger.getInstance(userDataHandler);
+        Logger logger = Logger.getInstance();
         User user = logger.getUser();
         logger.signOut();
 
+        userDataHandler.setObject(user);
         userDataHandler.loadAllData();
-        userDataHandler.removeObject(user);
+        userDataHandler.removeObject();
     }
 }

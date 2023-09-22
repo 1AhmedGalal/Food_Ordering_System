@@ -1,4 +1,4 @@
-package userinterfacecomponents.restaurantmenucomponentutil;
+package userinterfacecomponents.restaurantmenucomponents;
 
 import datahandlers.DataHandlerFactory;
 import datahandlers.users.UserDataHandler;
@@ -23,7 +23,7 @@ public class ViewMenuComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance(null);
+        Logger logger = Logger.getInstance();
         User user = logger.getUser();
         Restaurant restaurant = null;
 
@@ -38,8 +38,10 @@ public class ViewMenuComponent extends UserInterfaceComponent
             Scanner scanner = new Scanner(System.in);
             String name = scanner.next();
             restaurant = (Restaurant) new OnlineRestaurant(name, null, null);
-            DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(restaurant);
+
+            DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
             UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
+            userDataHandler.setObject(restaurant);
             restaurant = (Restaurant) userDataHandler.loadFullObject();
         }
 

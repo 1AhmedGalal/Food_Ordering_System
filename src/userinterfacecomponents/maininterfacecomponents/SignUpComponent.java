@@ -36,11 +36,8 @@ public class SignUpComponent extends UserInterfaceComponent
         password = scanner.next();
 
         User user = new NormalUser(name, phone, password);
-        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(user);
-        UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
-        Logger logger = Logger.getInstance(userDataHandler);
-
-        logger.signUp();
+        Logger logger = Logger.getInstance();
+        logger.signUp(user);
 
     }
 }

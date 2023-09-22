@@ -17,12 +17,18 @@ public abstract class UserDataHandler implements DataHandler
     protected Hashtable<String, User> users; // a lot of adding and removing is needed as well as fast lookups
     protected Hashtable<String, UserType> userTypes; // a lot of adding and removing is needed as well as fast lookups/
 
-    UserDataHandler(User user)
+    UserDataHandler()
     {
-        this.user = user;
+        this.user = null;
         users = new Hashtable<>();
         userTypes = new Hashtable<>();
         allDataLoaded = false;
+    }
+
+    @Override
+    public void setObject(Object object)
+    {
+        this.user = (User) object;
     }
 
     public abstract boolean userPhoneExists();

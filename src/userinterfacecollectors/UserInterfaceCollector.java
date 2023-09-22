@@ -44,9 +44,7 @@ public abstract class UserInterfaceCollector
 
             try
             {
-                DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
-                UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
-                logger = Logger.getInstance(userDataHandler);
+                logger = Logger.getInstance();
 
                 if(logger.getUser() == null) //this means that the user logged out
                     break;

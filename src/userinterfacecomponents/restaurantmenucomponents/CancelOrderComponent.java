@@ -1,4 +1,4 @@
-package userinterfacecomponents.restaurantmenucomponentutil;
+package userinterfacecomponents.restaurantmenucomponents;
 
 import datahandlers.DataHandler;
 import datahandlers.orderutil.OrderDummyDataHandler;
@@ -20,7 +20,7 @@ public class CancelOrderComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance(null);
+        Logger logger = Logger.getInstance();
         User user = logger.getUser();
 
         DataHandler dataHandler = new OrderDummyDataHandler(user); //needs fix

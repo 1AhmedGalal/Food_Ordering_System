@@ -6,16 +6,10 @@ import userinterfacecollectors.MainInterface;
 
 public class UserInterfaceDataHandlerFactory implements DataHandlerFactory
 {
-    MainInterface mainInterface;
-
-    public UserInterfaceDataHandlerFactory(MainInterface mainInterface)
-    {
-        this.mainInterface = mainInterface;
-    }
 
     @Override
     public DataHandler createDataHandler()
     {
-        return new MainInterfaceDummyDataHandler(mainInterface);
+        return new MainInterfaceDummyDataHandler();
     }
 }

@@ -1,18 +1,22 @@
 package datahandlers.userinterface;
 
+import datahandlers.DataHandlerException;
 import userinterfacecollectors.UserInterface;
 import userinterfacecomponents.UserInterfaceComponent;
 import userinterfacecomponents.admincomponents.ViewAllRestaurantsComponent;
 import userinterfacecomponents.maininterfacecomponents.SignOutComponent;
-import userinterfacecomponents.restaurantmenucomponentutil.CancelOrderComponent;
+import userinterfacecomponents.restaurantmenucomponents.CancelOrderComponent;
 import userinterfacecomponents.usercompoenentsutil.MakeOrderComponent;
-import userinterfacecomponents.restaurantmenucomponentutil.ViewMenuComponent;
-import userinterfacecomponents.restaurantmenucomponentutil.ViewOrdersComponent;
+import userinterfacecomponents.restaurantmenucomponents.ViewMenuComponent;
+import userinterfacecomponents.restaurantmenucomponents.ViewOrdersComponent;
 
 public class UserInterfaceDummyDataHandler extends UserInterfaceDataHandler
 {
-    UserInterfaceDummyDataHandler(UserInterface userInterface) {
-        super(userInterface);
+
+
+    UserInterfaceDummyDataHandler()
+    {
+        super();
     }
 
     @Override
@@ -22,7 +26,8 @@ public class UserInterfaceDummyDataHandler extends UserInterfaceDataHandler
     }
 
     @Override
-    public void loadAllData() {
+    public void loadAllData()
+    {
 
         UserInterfaceComponent userInterfaceComponent = new ViewAllRestaurantsComponent("View Restaurants");
         userInterface.addComponent(userInterfaceComponent);
@@ -44,15 +49,18 @@ public class UserInterfaceDummyDataHandler extends UserInterfaceDataHandler
     }
 
     @Override
-    public void saveObject(Object object)
-    {
-        userInterface.addComponent((UserInterfaceComponent) object);
+    public void saveObject() throws DataHandlerException {
+
     }
 
     @Override
-    public void removeObject(Object object)
-    {
-        userInterface.removeComponent((UserInterfaceComponent) object);
+    public void removeObject() throws DataHandlerException {
+
+    }
+
+    @Override
+    public void updateObject() throws DataHandlerException {
+
     }
 
     @Override

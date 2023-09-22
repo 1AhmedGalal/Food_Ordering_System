@@ -1,4 +1,4 @@
-package userinterfacecomponents.restaurantmenucomponentutil;
+package userinterfacecomponents.restaurantmenucomponents;
 
 import datahandlers.DataHandlerFactory;
 import datahandlers.users.UserDataHandler;
@@ -22,8 +22,7 @@ public class TransformRestaurantComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Scanner scanner = new Scanner(System.in);
-        Logger logger = Logger.getInstance(null);
+        Logger logger = Logger.getInstance();
 
         String currentType, newType;
         if(logger.getUser() instanceof OnsiteRestaurant)
@@ -38,28 +37,27 @@ public class TransformRestaurantComponent extends UserInterfaceComponent
         }
 
         System.out.println("Press 1 to make it " + newType + " restaurant instead of " + currentType + " and any other number to go back");
-        System.out.println();
+        Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
         if(choice == 1)
         {
             User user = logger.getUser();
-            logger.signOut();
-
-            DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(user);
-            UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
-            userDataHandler.loadAllData();
-            userDataHandler.removeObject(user);
-
             Restaurant restaurant;
+
             if(currentType.equals("online"))
                 restaurant = new OnsiteRestaurant((Restaurant) user);
             else
                 restaurant = new OnlineRestaurant((Restaurant) user);
 
-            userDataHandler.saveObject(restaurant);
-            logger.signIn();
+            UserDataHandlerFactory userDataHandlerFactory = new UserDataHandlerFactory();
+            UserDataHandler userDataHandler = (UserDataHandler) userDataHandlerFactory.createDataHandler();
 
+            userDataHandler.setObject(user);
+            userDataHandler.updateObject();
+
+            logger.signOut();
+            logger.signIn(user);
         }
 
     }

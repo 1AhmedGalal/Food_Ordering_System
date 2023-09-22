@@ -1,4 +1,4 @@
-package userinterfacecomponents.restaurantmenucomponentutil;
+package userinterfacecomponents.restaurantmenucomponents;
 
 import logger.Logger;
 import menuutil.Menu;
@@ -22,7 +22,7 @@ public class RemoveMenuItemComponent extends UserInterfaceComponent
         System.out.println("Enter Component number : ");
         int componentNumber = scanner.nextInt();
 
-        Logger logger = Logger.getInstance(null);
+        Logger logger = Logger.getInstance();
         Restaurant restaurant = (Restaurant) logger.getUser();
         Menu menu = null; ///needs fix
         menu.RemoveItem(componentNumber);

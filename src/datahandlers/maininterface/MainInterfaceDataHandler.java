@@ -6,8 +6,14 @@ import userinterfacecollectors.MainInterface;
 public abstract class MainInterfaceDataHandler implements DataHandler
 {
     MainInterface mainInterface;
-    MainInterfaceDataHandler(MainInterface mainInterface)
+    MainInterfaceDataHandler()
     {
-        this.mainInterface = mainInterface;
+        this.mainInterface = null;
+    }
+
+    @Override
+    public void setObject(Object object)
+    {
+        this.mainInterface = (MainInterface) object;
     }
 }

@@ -1,16 +1,14 @@
 package datahandlers.restrauntinterface;
 
+import datahandlers.DataHandlerException;
 import userinterfacecollectors.RestaurantInterface;
 import userinterfacecomponents.UserInterfaceComponent;
+import userinterfacecomponents.maininterfacecomponents.DeleteAccountComponent;
 import userinterfacecomponents.maininterfacecomponents.SignOutComponent;
-import userinterfacecomponents.restaurantmenucomponentutil.*;
+import userinterfacecomponents.restaurantmenucomponents.*;
 
 public class RestaurantInterfaceDummyDataHandler extends RestaurantInterfaceDataHandler
 {
-    RestaurantInterfaceDummyDataHandler(RestaurantInterface restaurantInterface)
-    {
-        super(restaurantInterface);
-    }
 
     @Override
     public void saveAllData()
@@ -52,7 +50,7 @@ public class RestaurantInterfaceDummyDataHandler extends RestaurantInterfaceData
         userInterfaceComponent = new TransformRestaurantComponent("Change Restaurant Type");
         restaurantInterface.addComponent(userInterfaceComponent);
 
-        userInterfaceComponent = new SignOutComponent("Remove Account");
+        userInterfaceComponent = new DeleteAccountComponent("Remove Account");
         restaurantInterface.addComponent(userInterfaceComponent);
 
         userInterfaceComponent = new SignOutComponent("Sign Out");
@@ -60,16 +58,20 @@ public class RestaurantInterfaceDummyDataHandler extends RestaurantInterfaceData
     }
 
     @Override
-    public void saveObject(Object object)
-    {
-        restaurantInterface.addComponent((UserInterfaceComponent) object);
+    public void saveObject() throws DataHandlerException {
+
     }
 
     @Override
-    public void removeObject(Object object)
-    {
-        restaurantInterface.removeComponent((UserInterfaceComponent) object);
+    public void removeObject() throws DataHandlerException {
+
     }
+
+    @Override
+    public void updateObject() throws DataHandlerException {
+
+    }
+
 
     @Override
     public Object loadFullObject()

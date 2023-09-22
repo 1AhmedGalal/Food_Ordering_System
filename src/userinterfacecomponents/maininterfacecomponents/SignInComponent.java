@@ -32,12 +32,8 @@ public class SignInComponent extends UserInterfaceComponent
         password = scanner.next();
 
         User user = new NormalUser(phone, password);
-
-        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(user);
-        UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
-        Logger logger = Logger.getInstance(userDataHandler);
-
-        logger.signIn();
+        Logger logger = Logger.getInstance();
+        logger.signIn(user);
 
     }
 }

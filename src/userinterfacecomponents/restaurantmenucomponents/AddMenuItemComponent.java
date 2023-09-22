@@ -1,4 +1,4 @@
-package userinterfacecomponents.restaurantmenucomponentutil;
+package userinterfacecomponents.restaurantmenucomponents;
 
 import foodutil.Appetizer;
 import foodutil.Drink;
@@ -63,7 +63,7 @@ public class AddMenuItemComponent extends UserInterfaceComponent
                 break;
         }
 
-        Logger logger = Logger.getInstance(null);
+        Logger logger = Logger.getInstance();
         Restaurant restaurant = (Restaurant) logger.getUser();
         //Menu menu = restaurant.getMenu();
         //menu.addItem(food);

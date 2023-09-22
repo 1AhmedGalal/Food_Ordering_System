@@ -1,5 +1,6 @@
 package datahandlers.orderutil;
 
+import datahandlers.DataHandlerException;
 import foodutil.Food;
 import foodutil.MainDish;
 import orderutil.FoodOrder;
@@ -13,6 +14,11 @@ public class OrderDummyDataHandler extends OrderDataHandler
     public OrderDummyDataHandler(User user)
     {
         super(user);
+    }
+
+    @Override
+    public void setObject(Object object) {
+
     }
 
     @Override
@@ -36,12 +42,17 @@ public class OrderDummyDataHandler extends OrderDataHandler
     }
 
     @Override
-    public void saveObject(Object object) {
+    public void saveObject() throws DataHandlerException {
 
     }
 
     @Override
-    public void removeObject(Object object) {
+    public void removeObject() throws DataHandlerException {
+
+    }
+
+    @Override
+    public void updateObject() throws DataHandlerException {
 
     }
 

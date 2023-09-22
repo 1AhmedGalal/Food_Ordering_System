@@ -1,5 +1,6 @@
 package datahandlers.admininterface;
 
+import datahandlers.DataHandlerException;
 import userinterfacecollectors.AdminInterface;
 import userinterfacecomponents.UserInterfaceComponent;
 import userinterfacecomponents.admincomponents.RemoveUserComponent;
@@ -9,9 +10,9 @@ import userinterfacecomponents.maininterfacecomponents.SignOutComponent;
 
 public class AdminInterfaceDummyDataHandler extends AdminInterfaceDataHandler
 {
-    AdminInterfaceDummyDataHandler(AdminInterface adminInterface)
+    AdminInterfaceDummyDataHandler()
     {
-        super(adminInterface);
+        super();
     }
 
     @Override
@@ -38,15 +39,18 @@ public class AdminInterfaceDummyDataHandler extends AdminInterfaceDataHandler
     }
 
     @Override
-    public void saveObject(Object object)
-    {
-        adminInterface.addComponent((UserInterfaceComponent) object);
+    public void saveObject() throws DataHandlerException {
+
     }
 
     @Override
-    public void removeObject(Object object)
-    {
-        adminInterface.removeComponent((UserInterfaceComponent) object);
+    public void removeObject() throws DataHandlerException {
+
+    }
+
+    @Override
+    public void updateObject() throws DataHandlerException {
+
     }
 
     @Override

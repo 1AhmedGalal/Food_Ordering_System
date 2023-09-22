@@ -1,5 +1,7 @@
-package userinterfacecomponents.restaurantmenucomponentutil;
+package userinterfacecomponents.restaurantmenucomponents;
 
+import datahandlers.users.UserDataHandler;
+import datahandlers.users.UserDataHandlerFactory;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnsiteRestaurant;
@@ -17,7 +19,7 @@ public class RemoveSitesComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance(null);
+        Logger logger = Logger.getInstance();
 
         if(!(logger.getUser() instanceof OnsiteRestaurant))
             throw new Exception("No Sites Available Since This Restaurant is not Onsite");
@@ -33,5 +35,10 @@ public class RemoveSitesComponent extends UserInterfaceComponent
         int componentNumber = scanner.nextInt();
         restaurant.removeSite(componentNumber);
 
+        UserDataHandlerFactory userDataHandlerFactory = new UserDataHandlerFactory();
+        UserDataHandler userDataHandler = (UserDataHandler) userDataHandlerFactory.createDataHandler();
+        userDataHandler.setObject(restaurant);
+        userDataHandler.loadAllData();
+        userDataHandler.updateObject();
     }
 }

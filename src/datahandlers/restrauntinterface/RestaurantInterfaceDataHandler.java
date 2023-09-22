@@ -6,8 +6,14 @@ public abstract class RestaurantInterfaceDataHandler implements DataHandler
 {
     RestaurantInterface restaurantInterface;
 
-    RestaurantInterfaceDataHandler(RestaurantInterface restaurantInterface)
+    RestaurantInterfaceDataHandler()
     {
-        this.restaurantInterface = restaurantInterface;
+        this.restaurantInterface = null;
+    }
+
+    @Override
+    public void setObject(Object object)
+    {
+        this.restaurantInterface = (RestaurantInterface) object;
     }
 }

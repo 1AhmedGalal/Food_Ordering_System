@@ -1,5 +1,7 @@
-package userinterfacecomponents.restaurantmenucomponentutil;
+package userinterfacecomponents.restaurantmenucomponents;
 
+import datahandlers.users.UserDataHandler;
+import datahandlers.users.UserDataHandlerFactory;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnsiteRestaurant;
@@ -16,7 +18,7 @@ public class ViewSitesComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance(null);
+        Logger logger = Logger.getInstance();
 
         if(!(logger.getUser() instanceof OnsiteRestaurant))
             throw new Exception("No Sites Available Since This Restaurant is not Onsite");
@@ -24,7 +26,7 @@ public class ViewSitesComponent extends UserInterfaceComponent
         OnsiteRestaurant restaurant = (OnsiteRestaurant) logger.getUser();
         LinkedList<String> sites = restaurant.getSites();
 
-        if(sites.isEmpty())
+        if(sites == null || sites.isEmpty())
             throw new Exception("No Sites Available");
 
         int id = 1;

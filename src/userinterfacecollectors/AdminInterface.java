@@ -10,8 +10,9 @@ public class AdminInterface extends UserInterfaceCollector
     public AdminInterface() throws DataHandlerException
     {
         super();
-        AdminInterfaceDataHandlerFactory adminInterfaceDataHandlerFactory = new AdminInterfaceDataHandlerFactory(this);
+        AdminInterfaceDataHandlerFactory adminInterfaceDataHandlerFactory = new AdminInterfaceDataHandlerFactory();
         AdminInterfaceDataHandler adminInterfaceDataHandler = (AdminInterfaceDataHandler) adminInterfaceDataHandlerFactory.createDataHandler();
+        adminInterfaceDataHandler.setObject(this);
         adminInterfaceDataHandler.loadAllData();
     }
 

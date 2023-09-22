@@ -7,8 +7,14 @@ public abstract class AdminInterfaceDataHandler implements DataHandler
 {
     AdminInterface adminInterface;
 
-    AdminInterfaceDataHandler(AdminInterface adminInterface)
+    AdminInterfaceDataHandler()
     {
-        this.adminInterface = adminInterface;
+        this.adminInterface = null;
     }
+
+    @Override
+    public void setObject(Object object) {
+        this.adminInterface = (AdminInterface) object;
+    }
+
 }

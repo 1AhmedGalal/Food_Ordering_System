@@ -15,10 +15,12 @@ public class OnsiteRestaurant extends Restaurant
     public OnsiteRestaurant(String phone) throws UserException
     {
         super(phone);
+        sites = new LinkedList<>();
     }
     public OnsiteRestaurant(Restaurant restaurant)
     {
         super(restaurant);
+        sites = new LinkedList<>();
     }
 
     public OnsiteRestaurant(String phone, String password) throws UserException
@@ -43,6 +45,8 @@ public class OnsiteRestaurant extends Restaurant
     {
         if(site == null)
             throw new Exception("Invalid site");
+        else if(sites == null)
+            sites = new LinkedList<>();
 
         sites.add(site);
     }

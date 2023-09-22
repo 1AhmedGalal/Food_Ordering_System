@@ -30,7 +30,7 @@ public class MakeOrderComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        Logger logger = Logger.getInstance(null);
+        Logger logger = Logger.getInstance();
         User user = logger.getUser();
 
         Scanner scanner = new Scanner(System.in);
@@ -40,8 +40,9 @@ public class MakeOrderComponent extends UserInterfaceComponent
         input = scanner.next();
 
         Restaurant restaurant = (Restaurant) new OnlineRestaurant(input, null ,null);
-        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(restaurant);
+        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
         UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
+        userDataHandler.setObject(restaurant);
         restaurant = (Restaurant) userDataHandler.loadFullObject();
 
         Menu menu = null; ///needs fix

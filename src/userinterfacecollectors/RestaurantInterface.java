@@ -10,8 +10,9 @@ public class RestaurantInterface extends UserInterfaceCollector
     public RestaurantInterface() throws DataHandlerException
     {
         super();
-        RestaurantInterfaceDataHandlerFactory restaurantInterfaceDataHandlerFactory = new RestaurantInterfaceDataHandlerFactory(this);
+        RestaurantInterfaceDataHandlerFactory restaurantInterfaceDataHandlerFactory = new RestaurantInterfaceDataHandlerFactory();
         RestaurantInterfaceDataHandler restaurantInterfaceDataHandler = (RestaurantInterfaceDataHandler) restaurantInterfaceDataHandlerFactory.createDataHandler();
+        restaurantInterfaceDataHandler.setObject(this);
         restaurantInterfaceDataHandler.loadAllData();
     }
 

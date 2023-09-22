@@ -17,9 +17,7 @@ public class SignOutComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
-        UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
-        Logger logger = Logger.getInstance(userDataHandler);
+        Logger logger = Logger.getInstance();
         logger.signOut();
     }
 }

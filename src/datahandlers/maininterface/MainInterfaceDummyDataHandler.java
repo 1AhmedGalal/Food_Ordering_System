@@ -1,5 +1,6 @@
 package datahandlers.maininterface;
 
+import datahandlers.DataHandlerException;
 import userinterfacecollectors.MainInterface;
 import userinterfacecomponents.UserInterfaceComponent;
 import userinterfacecomponents.maininterfacecomponents.ExitComponent;
@@ -10,8 +11,8 @@ import userinterfacecomponents.maininterfacecomponents.SignUpComponent;
 public class MainInterfaceDummyDataHandler extends MainInterfaceDataHandler
 {
 
-    MainInterfaceDummyDataHandler(MainInterface mainInterface) {
-        super(mainInterface);
+    MainInterfaceDummyDataHandler() {
+        super();
     }
 
     @Override
@@ -38,15 +39,18 @@ public class MainInterfaceDummyDataHandler extends MainInterfaceDataHandler
     }
 
     @Override
-    public void saveObject(Object object)
-    {
-        mainInterface.addComponent((UserInterfaceComponent) object);
+    public void saveObject() throws DataHandlerException {
+
     }
 
     @Override
-    public void removeObject(Object object)
-    {
-        mainInterface.removeComponent((UserInterfaceComponent) object);
+    public void removeObject() throws DataHandlerException {
+
+    }
+
+    @Override
+    public void updateObject() throws DataHandlerException {
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package datahandlers.menuutil;
 
+import datahandlers.DataHandlerException;
 import foodutil.Drink;
 import foodutil.Food;
 import foodutil.MainDish;
@@ -10,6 +11,11 @@ public class MenuDummyDataHandler extends MenuDataHandler
     public MenuDummyDataHandler(Restaurant restaurant)
     {
         super(restaurant);
+    }
+
+    @Override
+    public void setObject(Object object) {
+
     }
 
     @Override
@@ -42,12 +48,17 @@ public class MenuDummyDataHandler extends MenuDataHandler
     }
 
     @Override
-    public void saveObject(Object object) {
+    public void saveObject() throws DataHandlerException {
 
     }
 
     @Override
-    public void removeObject(Object object) {
+    public void removeObject() throws DataHandlerException {
+
+    }
+
+    @Override
+    public void updateObject() throws DataHandlerException {
 
     }
 

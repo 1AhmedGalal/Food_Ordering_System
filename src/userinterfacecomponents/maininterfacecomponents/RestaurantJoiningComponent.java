@@ -67,10 +67,8 @@ public class RestaurantJoiningComponent extends UserInterfaceComponent
             user = new OnlineRestaurant(name, phone, password);
         }
 
-        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory(user);
-        UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
-        Logger logger = Logger.getInstance(userDataHandler);
 
-        logger.signUp();
+        Logger logger = Logger.getInstance();
+        logger.signUp(user);
     }
 }

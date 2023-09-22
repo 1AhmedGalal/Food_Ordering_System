@@ -3,8 +3,6 @@ package userinterfacecollectors;
 import datahandlers.DataHandlerException;
 import datahandlers.DataHandlerFactory;
 import datahandlers.maininterface.MainInterfaceDataHandler;
-import datahandlers.maininterface.MainInterfaceDummyDataHandler;
-import datahandlers.maininterface.MainInterfaceFileDataHandler;
 import datahandlers.maininterface.UserInterfaceDataHandlerFactory;
 import datahandlers.users.UserDataHandler;
 import datahandlers.users.UserDataHandlerFactory;
@@ -20,8 +18,9 @@ public class MainInterface extends UserInterfaceCollector
     public MainInterface() throws DataHandlerException
     {
         super();
-        UserInterfaceDataHandlerFactory userInterfaceDataHandlerFactory = new UserInterfaceDataHandlerFactory(this);
+        UserInterfaceDataHandlerFactory userInterfaceDataHandlerFactory = new UserInterfaceDataHandlerFactory();
         MainInterfaceDataHandler mainInterfaceDataLoader = (MainInterfaceDataHandler) userInterfaceDataHandlerFactory.createDataHandler();
+        mainInterfaceDataLoader.setObject(this);
         mainInterfaceDataLoader.loadAllData();
     }
 
@@ -51,9 +50,7 @@ public class MainInterface extends UserInterfaceCollector
                 continue;
             }
 
-            DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
-            UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
-            Logger logger = Logger.getInstance(userDataHandler);
+            Logger logger = Logger.getInstance();
             User user = logger.getUser();
 
             UserInterfaceCollector userInterfaceCollector = null;

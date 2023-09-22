@@ -9,8 +9,9 @@ public class UserInterface extends UserInterfaceCollector
     public UserInterface() throws DataHandlerException
     {
         super();
-        UserInterfaceDataHandlerFactory userInterfaceDataHandlerFactory = new UserInterfaceDataHandlerFactory(this);
+        UserInterfaceDataHandlerFactory userInterfaceDataHandlerFactory = new UserInterfaceDataHandlerFactory();
         UserInterfaceDataHandler userInterfaceDataLoader = (UserInterfaceDataHandler) userInterfaceDataHandlerFactory.createDataHandler();
+        userInterfaceDataLoader.setObject(this);
         userInterfaceDataLoader.loadAllData();
     }
 }
