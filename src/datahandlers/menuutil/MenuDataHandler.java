@@ -1,8 +1,8 @@
 package datahandlers.menuutil;
 
 import datahandlers.DataHandler;
-import menuutil.Menu;
-import menuutil.RestaurantMenu;
+import menu.Menu;
+import menu.RestaurantMenu;
 import users.Restaurant;
 
 public abstract class MenuDataHandler implements DataHandler
@@ -13,6 +13,6 @@ public abstract class MenuDataHandler implements DataHandler
     public MenuDataHandler(Restaurant restaurant)
     {
         this.restaurant = restaurant;
-        menu = new RestaurantMenu();
+        //menu = new RestaurantMenu();
     }
 }

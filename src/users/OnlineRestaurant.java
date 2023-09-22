@@ -1,7 +1,5 @@
 package users;
 
-import menuutil.Menu;
-
 public class OnlineRestaurant extends Restaurant
 {
     public OnlineRestaurant()

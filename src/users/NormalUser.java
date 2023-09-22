@@ -1,5 +1,9 @@
 package users;
 
+import offers.Coupon;
+
+import java.util.Hashtable;
+
 public class NormalUser extends User
 {
 

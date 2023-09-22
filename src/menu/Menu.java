@@ -1,4 +1,4 @@
-package menuutil;
+package menu;
 
 import foods.Food;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public abstract class Menu
 {
-    ArrayList<Food> foods;
+    protected ArrayList<Food> foods; //modifying the menu is less frequent than lookups so array list is better here
 
     public Menu()
     {
@@ -15,7 +15,7 @@ public abstract class Menu
 
     public void addItem(Food food) throws MenuException
     {
-        if(foods.contains(food))
+        if(foodExists(food))
             throw new MenuException("Food Already Exists");
 
         foods.add(food);
@@ -52,8 +52,22 @@ public abstract class Menu
         return foods.get(choice);
     }
 
-    protected boolean isValidChoice(int choice)
+    private boolean isValidChoice(int choice)
     {
         return choice >= 0 && choice < foods.size();
+    }
+
+    private boolean foodExists(Food food)
+    {
+        for(Food currentFood : foods)
+        {
+            String currentFoodName = currentFood.getName();
+            String foodName = currentFood.getName();
+
+            if(currentFoodName.equals(foodName))
+                return true;
+        }
+
+        return false;
     }
 }

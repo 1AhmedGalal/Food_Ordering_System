@@ -7,7 +7,7 @@ import datahandlers.users.UserDataHandler;
 import datahandlers.users.UserDataHandlerFactory;
 import foods.Food;
 import logger.Logger;
-import menuutil.Menu;
+import menu.Menu;
 import orderutil.FoodOrder;
 import orderutil.FoodOrderReceiver;
 import orderutil.Order;

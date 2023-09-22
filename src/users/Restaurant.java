@@ -1,7 +1,5 @@
 package users;
 
-import menuutil.Menu;
-
 public abstract class Restaurant extends User
 {
     public Restaurant()

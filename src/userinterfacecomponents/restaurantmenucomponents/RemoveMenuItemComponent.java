@@ -1,7 +1,7 @@
 package userinterfacecomponents.restaurantmenucomponents;
 
 import logger.Logger;
-import menuutil.Menu;
+import menu.Menu;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.Restaurant;
 

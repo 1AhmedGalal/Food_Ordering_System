@@ -4,7 +4,7 @@ import datahandlers.DataHandlerFactory;
 import datahandlers.users.UserDataHandler;
 import datahandlers.users.UserDataHandlerFactory;
 import logger.Logger;
-import menuutil.Menu;
+import menu.Menu;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnlineRestaurant;
 import users.Restaurant;

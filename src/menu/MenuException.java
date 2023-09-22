@@ -1,4 +1,4 @@
-package menuutil;
+package menu;
 
 public class MenuException extends Exception
 {

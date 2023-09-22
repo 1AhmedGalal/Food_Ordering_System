@@ -11,7 +11,6 @@ public abstract class Food
     protected String foodID;
 
     protected String name;
-
     protected String size;
 
     protected String description;
@@ -74,4 +73,6 @@ public abstract class Food
     {
         this.offer = offer;
     }
+
+
 }
