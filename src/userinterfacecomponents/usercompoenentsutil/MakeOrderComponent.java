@@ -1,22 +1,6 @@
 package userinterfacecomponents.usercompoenentsutil;
 
-import datahandlers.DataHandler;
-import datahandlers.DataHandlerFactory;
-import datahandlers.orderutil.OrderDummyDataHandler;
-import datahandlers.users.UserDataHandler;
-import datahandlers.users.UserDataHandlerFactory;
-import foods.Food;
-import logger.Logger;
-import menu.Menu;
-import orderutil.FoodOrder;
-import orderutil.Order;
 import userinterfacecomponents.UserInterfaceComponent;
-import users.OnlineRestaurant;
-import users.Restaurant;
-import users.User;
-
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class MakeOrderComponent extends UserInterfaceComponent
 {

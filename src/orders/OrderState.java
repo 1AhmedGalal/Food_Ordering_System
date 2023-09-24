@@ -1,8 +1,10 @@
-package orderutil;
+package orders;
 
 public enum OrderState
 {
     PROCESSING,
+
     DELIVERED,
+
     CANCELED
 }
