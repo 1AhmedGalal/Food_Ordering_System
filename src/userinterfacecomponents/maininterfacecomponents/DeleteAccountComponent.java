@@ -27,5 +27,9 @@ public class DeleteAccountComponent extends UserInterfaceComponent
         userDataHandler.setObject(user);
         userDataHandler.loadAllData();
         userDataHandler.removeObject();
+
+        /*
+        remove menu if restaurant left
+         */
     }
 }

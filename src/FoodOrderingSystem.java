@@ -1,5 +1,11 @@
+import datahandlers.foods.FoodDataHandler;
+import datahandlers.foods.FoodDataHandlerFactory;
+import datahandlers.foods.FoodFileHandler;
 import datahandlers.users.UserDataHandler;
 import datahandlers.users.UserFileHandler;
+import foods.Appetizer;
+import foods.Food;
+import foods.MainDish;
 import userinterfacecollectors.MainInterface;
 import userinterfacecollectors.UserInterfaceCollector;
 

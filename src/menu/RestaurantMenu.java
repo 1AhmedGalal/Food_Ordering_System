@@ -10,7 +10,7 @@ public class RestaurantMenu extends Menu
         this.restaurantPhone = restaurantPhone;
     }
 
-    public String restaurantPhone()
+    public String getRestaurantPhone()
     {
         return restaurantPhone;
     }

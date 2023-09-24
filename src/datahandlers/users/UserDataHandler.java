@@ -33,10 +33,6 @@ public abstract class UserDataHandler implements DataHandler
 
     public abstract boolean userPhoneExists();
     public abstract boolean validUserData();
-    public User getUser()
-    {
-        return user;
-    }
     public ArrayList<String> getAllUsersData(UserType userType)
     {
         ArrayList<String> usersData = new ArrayList<>();
@@ -56,5 +52,11 @@ public abstract class UserDataHandler implements DataHandler
 
         return usersData;
 
+    }
+
+    @Override
+    public void alertUpdate()
+    {
+        allDataLoaded = false;
     }
 }

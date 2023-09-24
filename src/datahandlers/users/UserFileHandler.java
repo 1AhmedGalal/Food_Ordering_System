@@ -45,8 +45,13 @@ public class UserFileHandler extends UserDataHandler
                 if(user instanceof OnsiteRestaurant)
                 {
                     LinkedList<String> sites = ((OnsiteRestaurant) user).getSites();
-                    for(String site : sites)
-                        writer.write("\n" + site);
+
+                    if(sites != null && !sites.isEmpty())
+                    {
+                        for(String site : sites)
+                            writer.write("\n" + site);
+                    }
+
                 }
 
                 writer.write("\n" + "=");
@@ -65,6 +70,9 @@ public class UserFileHandler extends UserDataHandler
     @Override
     public void loadAllData() throws DataHandlerException
     {
+        if(allDataLoaded)
+            return;
+
         try
         {
             BufferedReader reader = new BufferedReader(new FileReader("users.txt"));

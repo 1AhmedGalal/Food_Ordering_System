@@ -58,6 +58,11 @@ public class RestaurantInterfaceDummyDataHandler extends RestaurantInterfaceData
     }
 
     @Override
+    public void alertUpdate() {
+
+    }
+
+    @Override
     public void saveObject() throws DataHandlerException {
 
     }

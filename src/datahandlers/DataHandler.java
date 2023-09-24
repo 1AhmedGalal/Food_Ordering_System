@@ -3,10 +3,6 @@ package datahandlers;
 public interface DataHandler
 {
     void setObject(Object object);
-    void saveAllData() throws DataHandlerException;
-
-    void loadAllData() throws DataHandlerException;
-
     void saveObject() throws DataHandlerException;
 
     void removeObject() throws DataHandlerException;
@@ -15,4 +11,9 @@ public interface DataHandler
 
     Object loadFullObject() throws DataHandlerException;
 
+    void saveAllData() throws DataHandlerException;
+
+    void loadAllData() throws DataHandlerException;
+
+    void alertUpdate();
 }

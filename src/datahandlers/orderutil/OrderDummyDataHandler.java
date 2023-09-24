@@ -36,6 +36,11 @@ public class OrderDummyDataHandler extends OrderDataHandler
     }
 
     @Override
+    public void alertUpdate() {
+
+    }
+
+    @Override
     public void saveObject() throws DataHandlerException {
 
     }

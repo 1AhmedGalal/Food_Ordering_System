@@ -61,6 +61,7 @@ public class Logger
         if(!userLoggedIn())
             throw new LoggingException("No User Exists");
 
+        userDataHandler.alertUpdate();
         userDataHandler.loadAllData(); //needed if a restaurant changes its type
 
         user = null;

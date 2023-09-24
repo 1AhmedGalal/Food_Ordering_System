@@ -6,6 +6,8 @@ import offers.Offer;
 import pricecalculator.CalculationException;
 import pricecalculator.PriceCalculator;
 
+import java.util.Objects;
+
 public abstract class Food
 {
     protected String foodID;
@@ -28,32 +30,8 @@ public abstract class Food
         this.size = size;
         this.description = description;
         this.price = price;
-        this.foodID = restaurantPhone + name;
+        this.foodID = restaurantPhone + name + size;
         offer = new NullOffer(restaurantPhone);
-    }
-
-    public String getName()
-    {
-        return name;
-    }
-
-    public String getSize()
-    {
-        return size;
-    }
-
-    public void setSize(String size) throws FoodException
-    {
-        if(name == null)
-            throw new FoodException("Invalid Name");
-
-        this.size = size;
-    }
-
-    public double getPrice() throws CalculationException
-    {
-        double discountPercentage = offer.getPercentage();
-        return PriceCalculator.calculatePrice(price, discountPercentage);
     }
 
     public void setPrice(double price) throws FoodException
@@ -64,15 +42,59 @@ public abstract class Food
         this.price = price;
     }
 
-    public Offer getOffer()
-    {
-        return offer;
-    }
-
     public void setOffer(Offer offer)
     {
         this.offer = offer;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setRestaurantPhone(String restaurantPhone) {
+        this.restaurantPhone = restaurantPhone;
+    }
+
+    public String getFoodID() {
+        return foodID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getRestaurantPhone() {
+        return restaurantPhone;
+    }
+
+    public Offer getOffer() {
+        return offer;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+            return true;
+
+        if (o == null || getClass() != o.getClass())
+            return false;
+
+        Food food = (Food) o;
+        return Objects.equals(foodID, food.foodID);
+
+    }
 
 }

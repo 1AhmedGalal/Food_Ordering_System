@@ -9,4 +9,9 @@ public class Drink extends Food
         super(restaurantPhone, name, size, description, price);
         this.cupType = cupType;
     }
+
+    public String getCupType()
+    {
+        return cupType;
+    }
 }

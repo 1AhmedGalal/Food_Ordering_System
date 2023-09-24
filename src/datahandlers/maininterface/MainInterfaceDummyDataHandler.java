@@ -39,6 +39,11 @@ public class MainInterfaceDummyDataHandler extends MainInterfaceDataHandler
     }
 
     @Override
+    public void alertUpdate() {
+
+    }
+
+    @Override
     public void saveObject() throws DataHandlerException {
 
     }
