@@ -4,6 +4,12 @@ public class Drink extends Food
 {
     protected String cupType;
 
+    public Drink(String foodID)
+    {
+        super(foodID);
+        this.cupType = null;
+    }
+
     public Drink(String restaurantPhone, String name, String size, String description, double price, String cupType)
     {
         super(restaurantPhone, name, size, description, price);

@@ -1,8 +1,11 @@
 package datahandlers.menu;
 
 import datahandlers.DataHandlerException;
+import datahandlers.foods.FoodDataHandler;
+import datahandlers.foods.FoodDataHandlerFactory;
 import datahandlers.users.UserType;
 import foods.Food;
+import foods.MainDish;
 import menu.Menu;
 import menu.RestaurantMenu;
 import users.NormalUser;
@@ -48,7 +51,7 @@ public class MenuFileHandler extends MenuDataHandler
 
                 writer.write("\n" + menu.getRestaurantPhone());
 
-                ArrayList<String> menuItems = menu.getItemsNames();
+                ArrayList<String> menuItems = menu.getItemIDs();
                 for(String menuItem : menuItems)
                     writer.write("\n" + menuItem);
 
@@ -100,7 +103,13 @@ public class MenuFileHandler extends MenuDataHandler
                 }
                 else
                 {
-                    //food = new;
+                    food = new MainDish(line); //any type here is fine as loadFullObject() will load the correct type anyway
+
+                    FoodDataHandlerFactory foodDataHandlerFactory = new FoodDataHandlerFactory();
+                    FoodDataHandler foodDataHandler = (FoodDataHandler) foodDataHandlerFactory.createDataHandler();
+                    foodDataHandler.setObject(food);
+
+                    food = (Food) loadFullObject();
                     menu.addItem(food);
                 }
             }
@@ -157,7 +166,7 @@ public class MenuFileHandler extends MenuDataHandler
     @Override
     public Object loadFullObject() throws DataHandlerException
     {
-        return null;
+        return menu;
     }
 
     private void clearFile() throws DataHandlerException

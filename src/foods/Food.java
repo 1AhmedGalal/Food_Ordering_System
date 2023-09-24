@@ -23,6 +23,11 @@ public abstract class Food
 
     protected Offer offer;
 
+    public Food(String foodID) //used by data handlers
+    {
+        this.foodID = foodID;
+    }
+
     public Food(String restaurantPhone, String name, String size, String description, double price)
     {
         this.restaurantPhone = restaurantPhone;

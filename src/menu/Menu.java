@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public abstract class Menu
 {
     protected ArrayList<Food> foods; //modifying the menu is less frequent than lookups so array list is better here
-
     public Menu()
     {
         foods = new ArrayList<>();
@@ -42,6 +41,15 @@ public abstract class Menu
         return items;
     }
 
+    public ArrayList<String> getItemIDs()
+    {
+        ArrayList<String> items = new ArrayList<>();
+
+        for(Food food : foods)
+            items.add(food.getFoodID());
+
+        return items;
+    }
     public Food getItem(int choice) throws MenuException
     {
         choice--;
