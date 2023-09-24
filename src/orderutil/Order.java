@@ -12,6 +12,7 @@ public abstract class Order
     protected User costumer;
 
     protected OrderState orderState;
+
     protected ArrayList<Food> foods;
 
     protected double totalPrice;

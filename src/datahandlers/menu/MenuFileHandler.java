@@ -107,9 +107,10 @@ public class MenuFileHandler extends MenuDataHandler
 
                     FoodDataHandlerFactory foodDataHandlerFactory = new FoodDataHandlerFactory();
                     FoodDataHandler foodDataHandler = (FoodDataHandler) foodDataHandlerFactory.createDataHandler();
-                    foodDataHandler.setObject(food);
+                    foodDataHandler.loadAllData();
 
-                    food = (Food) loadFullObject();
+                    foodDataHandler.setObject(food);
+                    food = (Food) foodDataHandler.loadFullObject();
                     menu.addItem(food);
                 }
             }
@@ -166,7 +167,12 @@ public class MenuFileHandler extends MenuDataHandler
     @Override
     public Object loadFullObject() throws DataHandlerException
     {
-        return menu;
+        String restaurantPhone = ((RestaurantMenu) menu).getRestaurantPhone();
+
+        if(!menus.containsKey(restaurantPhone))
+            throw new DataHandlerException("Food Not Found");
+
+        return menus.get(restaurantPhone);
     }
 
     private void clearFile() throws DataHandlerException

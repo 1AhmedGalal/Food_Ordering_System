@@ -50,14 +50,14 @@ public abstract class Menu
 
         return items;
     }
-    public Food getItem(int choice) throws MenuException
+    public String getItemID(int choice) throws MenuException
     {
         choice--;
 
         if(!isValidChoice(choice))
             throw new MenuException("Not A Valid Choice");
 
-        return foods.get(choice);
+        return foods.get(choice).getFoodID();
     }
 
     private boolean isValidChoice(int choice)
@@ -72,7 +72,7 @@ public abstract class Menu
             String currentFoodName = currentFood.getName();
             String foodName = currentFood.getName();
 
-            if(currentFoodName.equals(foodName))
+            if(currentFood.equals(food))
                 return true;
         }
 

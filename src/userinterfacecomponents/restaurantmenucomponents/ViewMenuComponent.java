@@ -1,10 +1,13 @@
 package userinterfacecomponents.restaurantmenucomponents;
 
 import datahandlers.DataHandlerFactory;
+import datahandlers.menu.MenuDataHandler;
+import datahandlers.menu.MenuDataHandlerFactory;
 import datahandlers.users.UserDataHandler;
 import datahandlers.users.UserDataHandlerFactory;
 import logger.Logger;
 import menu.Menu;
+import menu.RestaurantMenu;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnlineRestaurant;
 import users.Restaurant;
@@ -33,19 +36,27 @@ public class ViewMenuComponent extends UserInterfaceComponent
         }
         else
         {
-            System.out.println("Please Enter Restaurant Name : ");
+            System.out.println("Please Enter Restaurant Phone : ");
 
             Scanner scanner = new Scanner(System.in);
-            String name = scanner.next();
-            restaurant = (Restaurant) new OnlineRestaurant(name, null, null);
+            String phone = scanner.next();
+            restaurant = new OnlineRestaurant(phone);
 
             DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
             UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
+            userDataHandler.loadAllData();
+
             userDataHandler.setObject(restaurant);
             restaurant = (Restaurant) userDataHandler.loadFullObject();
         }
 
-        Menu menu = null; ///needs fix
+        MenuDataHandlerFactory menuDataHandlerFactory = new MenuDataHandlerFactory();
+        MenuDataHandler menuDataHandler = (MenuDataHandler) menuDataHandlerFactory.createDataHandler();
+        menuDataHandler.loadAllData();
+
+        Menu menu = new RestaurantMenu(restaurant.getPhone());
+        menuDataHandler.setObject(menu);
+        menu = (Menu) menuDataHandler.loadFullObject();
 
         ArrayList<String> menuItems = menu.getItemsNames();
 

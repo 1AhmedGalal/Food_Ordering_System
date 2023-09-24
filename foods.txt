@@ -28,6 +28,6 @@ MAIN_DISH
 147
 Steak
 Small
-140.5
-Steak_
+4.0
+1
 =
