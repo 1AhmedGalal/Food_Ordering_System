@@ -20,15 +20,9 @@ import java.util.Set;
 
 public class MenuFileHandler extends MenuDataHandler
 {
-    public MenuFileHandler()
+    MenuFileHandler()
     {
         super();
-    }
-
-    @Override
-    public void setObject(Object object)
-    {
-        this.menu = (Menu) object;
     }
 
     @Override
@@ -123,12 +117,6 @@ public class MenuFileHandler extends MenuDataHandler
         }
 
         allDataLoaded = true;
-    }
-
-    @Override
-    public void alertUpdate()
-    {
-        allDataLoaded = false;
     }
 
     @Override

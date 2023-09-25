@@ -1,12 +1,11 @@
 package datahandlers.userinterface;
 
 import datahandlers.DataHandlerException;
-import userinterfacecollectors.UserInterface;
 import userinterfacecomponents.UserInterfaceComponent;
 import userinterfacecomponents.admincomponents.ViewAllRestaurantsComponent;
 import userinterfacecomponents.maininterfacecomponents.SignOutComponent;
 import userinterfacecomponents.restaurantmenucomponents.CancelOrderComponent;
-import userinterfacecomponents.usercompoenentsutil.MakeOrderComponent;
+import userinterfacecomponents.usercompoenents.MakeOrderComponent;
 import userinterfacecomponents.restaurantmenucomponents.ViewMenuComponent;
 import userinterfacecomponents.restaurantmenucomponents.ViewOrdersComponent;
 

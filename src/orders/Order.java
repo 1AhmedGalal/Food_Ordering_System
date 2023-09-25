@@ -3,9 +3,11 @@ package orders;
 import foods.Food;
 import users.User;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 public abstract class Order
 {
@@ -14,9 +16,25 @@ public abstract class Order
 
     protected String costumerID;
     protected OrderState orderState;
-
     protected ArrayList<String> foodIDs;
     protected double totalPrice;
+
+    //should be used by data handler only
+    public Order(String orderID, String providerID, String costumerID, OrderState orderState, ArrayList<String> foodIDs, double totalPrice)
+    {
+        this.orderID = orderID;
+        this.providerID = providerID;
+        this.costumerID = costumerID;
+        this.orderState = orderState;
+        this.foodIDs = foodIDs;
+        this.totalPrice = totalPrice;
+    }
+
+    //used in the interface when you don't know the full order
+    public Order(String orderID)
+    {
+        this.orderID = orderID;
+    }
 
     public Order(String providerID, String costumerID, ArrayList<String> foodIDs, double totalPrice)
     {
@@ -26,7 +44,9 @@ public abstract class Order
         this.totalPrice = totalPrice;
         this.orderState = OrderState.PROCESSING;
 
-        LocalDate orderTime = LocalDate.now();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        String orderTime = formatter.format(date);
         this.orderID = providerID + costumerID + orderTime.toString();
     }
 

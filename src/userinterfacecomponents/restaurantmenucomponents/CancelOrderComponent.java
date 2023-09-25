@@ -1,10 +1,13 @@
 package userinterfacecomponents.restaurantmenucomponents;
 
-import datahandlers.DataHandler;
-import datahandlers.orderutil.OrderDummyDataHandler;
+import datahandlers.order.OrderDataHandler;
+import datahandlers.order.OrderDataHandlerFactory;
 import logger.Logger;
+import orders.FoodOrder;
+import orders.Order;
+import orders.OrderState;
 import userinterfacecomponents.UserInterfaceComponent;
-import users.User;
+import users.Restaurant;
 
 import java.util.Scanner;
 
@@ -18,16 +21,26 @@ public class CancelOrderComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
-//        Logger logger = Logger.getInstance();
-//        User user = logger.getUser();
-//
-//        DataHandler dataHandler = new OrderDummyDataHandler(user); //needs fix
-//        OrderReceiver orderReceiver = new FoodOrderReceiver(dataHandler, user);
-//
-//        System.out.println("Please Enter order ID : ");
-//        Scanner scanner = new Scanner(System.in);
-//        String orderId = scanner.next();
-//
-//        orderReceiver.cancelOrder(orderId);
+        Logger logger = Logger.getInstance();
+        Restaurant restaurant = (Restaurant) logger.getUser();
+
+        OrderDataHandlerFactory orderDataHandlerFactory = new OrderDataHandlerFactory();
+        OrderDataHandler orderDataHandler = (OrderDataHandler) orderDataHandlerFactory.createDataHandler();
+        orderDataHandler.loadAllData();
+
+        System.out.println("Please Enter order ID : ");
+        Scanner scanner = new Scanner(System.in);
+        String orderId = scanner.next();
+
+        Order order = new FoodOrder(orderId);
+        orderDataHandler.setObject(order);
+        order = (Order) orderDataHandler.loadFullObject();
+
+        if(order.getOrderState() != OrderState.PROCESSING || !order.getProviderID().equals(restaurant.getPhone()))
+            throw new Exception("Invalid operation");
+
+        order.setOrderState(OrderState.CANCELED);
+        orderDataHandler.setObject(order);
+        orderDataHandler.updateObject();
     }
 }

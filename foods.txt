@@ -24,6 +24,14 @@ Small
 Steak_
 =
 MAIN_DISH
+147BeefBig
+147
+Beef
+Big
+156.2
+medium
+=
+MAIN_DISH
 147SteakSmall
 147
 Steak

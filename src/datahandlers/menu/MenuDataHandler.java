@@ -13,10 +13,21 @@ public abstract class MenuDataHandler implements DataHandler
 
     protected Hashtable<String, Menu> menus; // a lot of fast lookups is needed
 
-    public MenuDataHandler()
+    MenuDataHandler()
     {
         menu = null;
         allDataLoaded = false;
         menus = new Hashtable<>();
+    }
+
+    public void setObject(Object object)
+    {
+        this.menu = (Menu) object;
+    }
+
+    @Override
+    public void alertUpdate()
+    {
+        allDataLoaded = false;
     }
 }
