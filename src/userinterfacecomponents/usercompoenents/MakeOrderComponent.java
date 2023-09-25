@@ -78,7 +78,7 @@ public class MakeOrderComponent extends UserInterfaceComponent
             foodDataHandler.loadAllData();;
             foodDataHandler.setObject(food);
             food = (Food) foodDataHandler.loadFullObject();
-            totalPrice += food.getPrice();
+            totalPrice += food.getOriginalPrice();
 
             System.out.println("Would you like to continue adding food ? (y/n)");
             input = scanner.next();

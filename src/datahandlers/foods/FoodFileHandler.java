@@ -1,19 +1,12 @@
 package datahandlers.foods;
 
 import datahandlers.DataHandlerException;
-import datahandlers.users.UserType;
 import foods.Appetizer;
 import foods.Drink;
 import foods.Food;
 import foods.MainDish;
-import users.NormalUser;
-import users.OnlineRestaurant;
-import users.OnsiteRestaurant;
-import users.User;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Set;
 
 public class FoodFileHandler extends FoodDataHandler
@@ -109,7 +102,7 @@ public class FoodFileHandler extends FoodDataHandler
                 writer.write("\n" + food.getRestaurantPhone());
                 writer.write("\n" + food.getName());
                 writer.write("\n" + food.getSize());
-                writer.write("\n" + Double.toString(food.getPrice()));
+                writer.write("\n" + Double.toString(food.getOriginalPrice()));
                 writer.write("\n" + food.getDescription());
 
                 writer.write("\n" + "=");

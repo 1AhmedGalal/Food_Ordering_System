@@ -1,6 +1,5 @@
 package foods;
 
-import offers.Discount;
 import offers.NullOffer;
 import offers.Offer;
 import pricecalculator.CalculationException;
@@ -76,8 +75,13 @@ public abstract class Food
         return description;
     }
 
-    public double getPrice() {
+    public double getOriginalPrice() {
         return price;
+    }
+
+    public double getNetPrice() throws CalculationException
+    {
+        return PriceCalculator.calculatePrice(price, offer);
     }
 
     public String getRestaurantPhone() {
