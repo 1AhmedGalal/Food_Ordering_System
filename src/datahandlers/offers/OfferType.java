@@ -1,4 +1,10 @@
 package datahandlers.offers;
 
-public enum OfferType {
+public enum OfferType
+{
+    DISCOUNT,
+
+    COUPON,
+
+    NO_OFFER
 }
