@@ -1,6 +1,6 @@
 package review;
 
-abstract class Review
+public abstract class Review
 {
     protected String reviewID;
 

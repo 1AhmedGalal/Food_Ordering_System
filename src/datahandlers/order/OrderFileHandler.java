@@ -40,11 +40,16 @@ public class OrderFileHandler extends OrderDataHandler
     {
 
         String orderID = order.getOrderID();
+        String providerID = order.getProviderID();
+        String customerID = order.getCostumerID();
 
         if(!orders.containsKey(orderID))
             throw new DataHandlerException("Order Not Found");
 
         orders.remove(orderID);
+        removeOrder(providerID, orderID, providerOrders);
+        removeOrder(customerID, orderID, customerOrders);
+
         saveAllData();
     }
 

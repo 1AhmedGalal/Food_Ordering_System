@@ -74,6 +74,15 @@ public abstract class OfferDataHandler implements DataHandler
         container.get(ownerID).add(offerID);
     }
 
+    protected void removeOffer(String ownerID, String offerID, Hashtable<String, LinkedList<String>> container) throws DataHandlerException
+    {
+        //when the container is empty make it first
+        if(!container.containsKey(ownerID) || container.get(ownerID).isEmpty())
+            throw new DataHandlerException("Offer not found");
+
+        container.get(ownerID).remove(offerID);
+    }
+
     protected OfferType getOfferType(Offer offer)
     {
         if(offer instanceof Discount)

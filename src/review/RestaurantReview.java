@@ -1,6 +1,6 @@
 package review;
 
-class RestaurantReview extends Review
+public class RestaurantReview extends Review
 {
 
     public RestaurantReview(String reviewID)

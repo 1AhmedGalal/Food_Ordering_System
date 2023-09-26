@@ -56,11 +56,25 @@ public class OfferFileHandler extends OfferDataHandler
     public void removeObject() throws DataHandlerException
     {
         String offerID = offer.getOfferID();
+        OfferType offerType = getOfferType(offer);
 
         if(!offers.containsKey(offerID))
             throw new DataHandlerException("Offer Not Found");
 
         offers.remove(offerID);
+        removeOffer(restaurantPhone, offerID, restaurantDiscounts);
+
+        if(offerType == OfferType.COUPON)
+        {
+            ownerID = ((Coupon) offer).getUserPhone();
+            removeOffer(ownerID, offerID, coupons);
+        }
+        else if(offerType == OfferType.DISCOUNT)
+        {
+            ownerID = ((Discount) offer).getFoodId();
+            removeOffer(ownerID, offerID, foodDiscounts);
+        }
+
         saveAllData();
     }
 

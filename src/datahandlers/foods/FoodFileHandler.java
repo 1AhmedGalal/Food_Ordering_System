@@ -52,6 +52,7 @@ public class FoodFileHandler extends FoodDataHandler
             throw new DataHandlerException("Food Not Found");
 
         foods.remove(foodID);
+        foodTypes.remove(foodID);
         saveAllData();
     }
 
