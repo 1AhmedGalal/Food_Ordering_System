@@ -1,6 +1,7 @@
 package datahandlers.admininterface;
 
 import datahandlers.DataHandlerException;
+import datahandlers.foods.FoodFileHandler;
 import userinterfacecollectors.AdminInterface;
 import userinterfacecomponents.UserInterfaceComponent;
 import userinterfacecomponents.admincomponents.RemoveUserComponent;
@@ -10,7 +11,19 @@ import userinterfacecomponents.maininterfacecomponents.SignOutComponent;
 
 public class AdminInterfaceDummyDataHandler extends AdminInterfaceDataHandler
 {
-    AdminInterfaceDummyDataHandler()
+
+    private static AdminInterfaceDummyDataHandler instance = null;
+
+
+    public static AdminInterfaceDummyDataHandler getInstance()
+    {
+        if(instance == null)
+            instance = new AdminInterfaceDummyDataHandler();
+
+        return instance;
+    }
+
+    private AdminInterfaceDummyDataHandler()
     {
         super();
     }

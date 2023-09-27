@@ -1,8 +1,8 @@
 package userinterfacecomponents.admincomponents;
 
 import datahandlers.DataHandlerFactory;
-import datahandlers.users.UserDataHandler;
-import datahandlers.users.UserDataHandlerFactory;
+import datahandlers.usersdatahandler.UserDataHandler;
+import datahandlers.usersdatahandler.UserDataHandlerFactory;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.NormalUser;
 import users.User;

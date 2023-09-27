@@ -1,11 +1,8 @@
 package userinterfacecollectors;
 
 import datahandlers.DataHandlerException;
-import datahandlers.DataHandlerFactory;
 import datahandlers.maininterface.MainInterfaceDataHandler;
 import datahandlers.maininterface.UserInterfaceDataHandlerFactory;
-import datahandlers.users.UserDataHandler;
-import datahandlers.users.UserDataHandlerFactory;
 import logger.Logger;
 import users.Admin;
 import users.Restaurant;

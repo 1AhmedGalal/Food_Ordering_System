@@ -10,6 +10,6 @@ public class RestaurantInterfaceDataHandlerFactory implements DataHandlerFactory
     @Override
     public DataHandler createDataHandler()
     {
-        return new RestaurantInterfaceDummyDataHandler();
+        return RestaurantInterfaceDummyDataHandler.getInstance();
     }
 }

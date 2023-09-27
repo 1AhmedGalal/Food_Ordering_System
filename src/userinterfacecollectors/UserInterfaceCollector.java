@@ -1,10 +1,5 @@
 package userinterfacecollectors;
 
-import datahandlers.DataHandlerException;
-import datahandlers.DataHandlerFactory;
-import datahandlers.users.UserDataHandler;
-import datahandlers.users.UserDataHandlerFactory;
-import datahandlers.users.UserFileHandler;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 

@@ -1,12 +1,9 @@
 package datahandlers.foods;
 
 import datahandlers.DataHandler;
-import datahandlers.users.UserType;
 import foods.Food;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Set;
 
 public abstract class FoodDataHandler implements DataHandler
 {

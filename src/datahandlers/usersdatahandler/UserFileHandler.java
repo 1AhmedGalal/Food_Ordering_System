@@ -1,11 +1,9 @@
-package datahandlers.users;
+package datahandlers.usersdatahandler;
 
 import datahandlers.DataHandlerException;
 import users.*;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Set;
@@ -13,9 +11,19 @@ import java.util.Set;
 public class UserFileHandler extends UserDataHandler
 {
 
-    public UserFileHandler()
+    private static UserFileHandler instance = null;
+
+    private UserFileHandler()
     {
         super();
+    }
+
+    public static UserFileHandler getInstance()
+    {
+        if(instance == null)
+            instance = new UserFileHandler();
+
+        return instance;
     }
 
     @Override

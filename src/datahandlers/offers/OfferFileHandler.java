@@ -1,6 +1,7 @@
 package datahandlers.offers;
 
 import datahandlers.DataHandlerException;
+import datahandlers.order.OrderFileHandler;
 import offers.Coupon;
 import offers.Discount;
 import offers.NullOffer;
@@ -18,7 +19,18 @@ public class OfferFileHandler extends OfferDataHandler
 
     private boolean isUsed;
 
-    public OfferFileHandler()
+    private static OfferFileHandler instance = null;
+
+
+    public static OfferFileHandler getInstance()
+    {
+        if(instance == null)
+            instance = new OfferFileHandler();
+
+        return instance;
+    }
+
+    private OfferFileHandler()
     {
         offerID = null;
         restaurantPhone = null;

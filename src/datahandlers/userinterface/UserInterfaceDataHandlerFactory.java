@@ -10,6 +10,6 @@ public class UserInterfaceDataHandlerFactory implements DataHandlerFactory
     @Override
     public DataHandler createDataHandler()
     {
-        return new UserInterfaceDummyDataHandler();
+        return UserInterfaceDummyDataHandler.getInstance();
     }
 }

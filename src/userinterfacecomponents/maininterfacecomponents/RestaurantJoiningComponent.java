@@ -1,9 +1,5 @@
 package userinterfacecomponents.maininterfacecomponents;
 
-import datahandlers.DataHandlerFactory;
-import datahandlers.users.UserDataHandler;
-import datahandlers.users.UserDataHandlerFactory;
-import datahandlers.users.UserFileHandler;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnlineRestaurant;

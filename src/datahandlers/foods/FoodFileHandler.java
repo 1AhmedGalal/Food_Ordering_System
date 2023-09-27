@@ -1,6 +1,7 @@
 package datahandlers.foods;
 
 import datahandlers.DataHandlerException;
+import datahandlers.maininterface.MainInterfaceDummyDataHandler;
 import foods.Appetizer;
 import foods.Drink;
 import foods.Food;
@@ -19,7 +20,19 @@ public class FoodFileHandler extends FoodDataHandler
     private String  description;
 
     private String cupType;
-    FoodFileHandler()
+
+    private static FoodFileHandler instance = null;
+
+
+    public static FoodFileHandler getInstance()
+    {
+        if(instance == null)
+            instance = new FoodFileHandler();
+
+        return instance;
+    }
+
+    private FoodFileHandler()
     {
         super();
     }

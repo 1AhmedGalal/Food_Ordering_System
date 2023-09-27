@@ -9,6 +9,6 @@ public class OfferDataHandlerFactory implements DataHandlerFactory
     @Override
     public DataHandler createDataHandler()
     {
-        return new OfferFileHandler();
+        return OfferFileHandler.getInstance();
     }
 }

@@ -1,6 +1,7 @@
 package datahandlers.restrauntinterface;
 
 import datahandlers.DataHandlerException;
+import datahandlers.reviews.ReviewFileHandler;
 import userinterfacecollectors.RestaurantInterface;
 import userinterfacecomponents.UserInterfaceComponent;
 import userinterfacecomponents.maininterfacecomponents.DeleteAccountComponent;
@@ -9,6 +10,21 @@ import userinterfacecomponents.restaurantmenucomponents.*;
 
 public class RestaurantInterfaceDummyDataHandler extends RestaurantInterfaceDataHandler
 {
+
+    private static RestaurantInterfaceDummyDataHandler instance = null;
+
+
+    public static RestaurantInterfaceDummyDataHandler getInstance()
+    {
+        if(instance == null)
+            instance = new RestaurantInterfaceDummyDataHandler();
+
+        return instance;
+    }
+    private RestaurantInterfaceDummyDataHandler()
+    {
+        super();
+    }
 
     @Override
     public void saveAllData()

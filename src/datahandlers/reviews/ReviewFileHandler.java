@@ -1,6 +1,7 @@
 package datahandlers.reviews;
 
 import datahandlers.DataHandlerException;
+import datahandlers.userinterface.UserInterfaceDummyDataHandler;
 import review.RestaurantReview;
 import review.Review;
 
@@ -15,7 +16,17 @@ public class ReviewFileHandler extends ReviewDataHandler
     private String reviewDetails;
     private double rating;
 
-    public ReviewFileHandler()
+    private static ReviewFileHandler instance = null;
+
+
+    public static ReviewFileHandler getInstance()
+    {
+        if(instance == null)
+            instance = new ReviewFileHandler();
+
+        return instance;
+    }
+    private ReviewFileHandler()
     {
         super();
         reviewID = null;

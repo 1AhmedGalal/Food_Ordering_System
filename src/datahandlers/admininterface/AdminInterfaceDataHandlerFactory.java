@@ -9,6 +9,6 @@ public class AdminInterfaceDataHandlerFactory implements DataHandlerFactory
     @Override
     public DataHandler createDataHandler()
     {
-        return new AdminInterfaceDummyDataHandler();
+        return AdminInterfaceDummyDataHandler.getInstance();
     }
 }

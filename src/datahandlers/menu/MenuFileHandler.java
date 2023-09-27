@@ -3,24 +3,29 @@ package datahandlers.menu;
 import datahandlers.DataHandlerException;
 import datahandlers.foods.FoodDataHandler;
 import datahandlers.foods.FoodDataHandlerFactory;
-import datahandlers.users.UserType;
+import datahandlers.offers.OfferFileHandler;
 import foods.Food;
 import foods.MainDish;
-import menu.Menu;
 import menu.RestaurantMenu;
-import users.NormalUser;
-import users.OnlineRestaurant;
-import users.OnsiteRestaurant;
-import users.User;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Set;
 
 public class MenuFileHandler extends MenuDataHandler
 {
-    MenuFileHandler()
+    private static MenuFileHandler instance = null;
+
+
+    public static MenuFileHandler getInstance()
+    {
+        if(instance == null)
+            instance = new MenuFileHandler();
+
+        return instance;
+    }
+
+    private MenuFileHandler()
     {
         super();
     }

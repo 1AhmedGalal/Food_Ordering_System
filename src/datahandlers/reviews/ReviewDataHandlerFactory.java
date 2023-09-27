@@ -8,6 +8,6 @@ public class ReviewDataHandlerFactory implements DataHandlerFactory
     @Override
     public DataHandler createDataHandler()
     {
-        return new ReviewFileHandler();
+        return ReviewFileHandler.getInstance();
     }
 }

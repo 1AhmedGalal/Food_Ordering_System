@@ -1,7 +1,7 @@
 package logger;
 import datahandlers.DataHandlerException;
-import datahandlers.users.UserDataHandler;
-import datahandlers.users.UserDataHandlerFactory;
+import datahandlers.usersdatahandler.UserDataHandler;
+import datahandlers.usersdatahandler.UserDataHandlerFactory;
 import users.User;
 
 public class Logger

@@ -1,12 +1,10 @@
 package userinterfacecomponents.admincomponents;
 
 import datahandlers.DataHandlerFactory;
-import datahandlers.users.UserDataHandler;
-import datahandlers.users.UserDataHandlerFactory;
-import datahandlers.users.UserType;
-import logger.Logger;
+import datahandlers.usersdatahandler.UserDataHandler;
+import datahandlers.usersdatahandler.UserDataHandlerFactory;
+import datahandlers.usersdatahandler.UserType;
 import userinterfacecomponents.UserInterfaceComponent;
-import users.User;
 
 import java.util.ArrayList;
 

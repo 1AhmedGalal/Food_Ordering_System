@@ -1,6 +1,7 @@
 package datahandlers.maininterface;
 
 import datahandlers.DataHandlerException;
+import datahandlers.menu.MenuFileHandler;
 import userinterfacecollectors.MainInterface;
 import userinterfacecomponents.UserInterfaceComponent;
 import userinterfacecomponents.maininterfacecomponents.ExitComponent;
@@ -11,7 +12,19 @@ import userinterfacecomponents.maininterfacecomponents.SignUpComponent;
 public class MainInterfaceDummyDataHandler extends MainInterfaceDataHandler
 {
 
-    MainInterfaceDummyDataHandler() {
+
+    private static MainInterfaceDummyDataHandler instance = null;
+
+
+    public static MainInterfaceDummyDataHandler getInstance()
+    {
+        if(instance == null)
+            instance = new MainInterfaceDummyDataHandler();
+
+        return instance;
+    }
+
+    private MainInterfaceDummyDataHandler() {
         super();
     }
 

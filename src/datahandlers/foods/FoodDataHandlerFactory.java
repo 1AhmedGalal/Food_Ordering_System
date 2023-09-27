@@ -9,7 +9,7 @@ public class FoodDataHandlerFactory implements DataHandlerFactory
     @Override
     public DataHandler createDataHandler()
     {
-        return new FoodFileHandler();
+        return FoodFileHandler.getInstance();
     }
 
 }

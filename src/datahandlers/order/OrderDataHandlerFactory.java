@@ -8,6 +8,6 @@ public class OrderDataHandlerFactory implements DataHandlerFactory
     @Override
     public DataHandler createDataHandler()
     {
-        return new OrderFileHandler();
+        return OrderFileHandler.getInstance();
     }
 }

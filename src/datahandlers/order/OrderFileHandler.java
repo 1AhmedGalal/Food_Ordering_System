@@ -2,6 +2,7 @@ package datahandlers.order;
 
 import datahandlers.DataHandlerException;
 import datahandlers.foods.FoodType;
+import datahandlers.restrauntinterface.RestaurantInterfaceDummyDataHandler;
 import foods.Appetizer;
 import foods.Drink;
 import foods.Food;
@@ -16,7 +17,17 @@ import java.util.Set;
 
 public class OrderFileHandler extends OrderDataHandler
 {
-    OrderFileHandler()
+    private static OrderFileHandler instance = null;
+
+
+    public static OrderFileHandler getInstance()
+    {
+        if(instance == null)
+            instance = new OrderFileHandler();
+
+        return instance;
+    }
+    private OrderFileHandler()
     {
         super();
     }

@@ -1,9 +1,8 @@
-package datahandlers.users;
+package datahandlers.usersdatahandler;
 import datahandlers.DataHandler;
 import users.User;
 import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.LinkedList;
 import java.util.Set;
 
 public abstract class UserDataHandler implements DataHandler

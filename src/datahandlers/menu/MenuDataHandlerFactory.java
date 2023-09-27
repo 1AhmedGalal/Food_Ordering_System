@@ -8,6 +8,6 @@ public class MenuDataHandlerFactory implements DataHandlerFactory
     @Override
     public DataHandler createDataHandler()
     {
-        return new MenuFileHandler();
+        return MenuFileHandler.getInstance();
     }
 }

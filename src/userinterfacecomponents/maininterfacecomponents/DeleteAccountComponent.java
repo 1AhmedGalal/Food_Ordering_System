@@ -1,8 +1,8 @@
 package userinterfacecomponents.maininterfacecomponents;
 
 import datahandlers.DataHandlerFactory;
-import datahandlers.users.UserDataHandler;
-import datahandlers.users.UserDataHandlerFactory;
+import datahandlers.usersdatahandler.UserDataHandler;
+import datahandlers.usersdatahandler.UserDataHandlerFactory;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.User;

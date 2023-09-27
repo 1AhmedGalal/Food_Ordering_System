@@ -13,7 +13,18 @@ public class UserInterfaceDummyDataHandler extends UserInterfaceDataHandler
 {
 
 
-    UserInterfaceDummyDataHandler()
+    private static UserInterfaceDummyDataHandler instance = null;
+
+
+    public static UserInterfaceDummyDataHandler getInstance()
+    {
+        if(instance == null)
+            instance = new UserInterfaceDummyDataHandler();
+
+        return instance;
+    }
+
+    private UserInterfaceDummyDataHandler()
     {
         super();
     }

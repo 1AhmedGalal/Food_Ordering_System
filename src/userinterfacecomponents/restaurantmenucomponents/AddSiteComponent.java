@@ -1,7 +1,7 @@
 package userinterfacecomponents.restaurantmenucomponents;
 
-import datahandlers.users.UserDataHandler;
-import datahandlers.users.UserDataHandlerFactory;
+import datahandlers.usersdatahandler.UserDataHandler;
+import datahandlers.usersdatahandler.UserDataHandlerFactory;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnsiteRestaurant;
