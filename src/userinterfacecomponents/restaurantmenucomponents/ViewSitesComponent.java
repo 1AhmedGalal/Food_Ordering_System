@@ -3,6 +3,7 @@ package userinterfacecomponents.restaurantmenucomponents;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnsiteRestaurant;
+import users.Restaurant;
 
 import java.util.LinkedList;
 
@@ -17,12 +18,12 @@ public class ViewSitesComponent extends UserInterfaceComponent
     public void doWork() throws Exception
     {
         Logger logger = Logger.getInstance();
+        Restaurant restaurant = (Restaurant) logger.getUser();
 
-        if(!(logger.getUser() instanceof OnsiteRestaurant))
+        if(!(restaurant instanceof OnsiteRestaurant))
             throw new Exception("No Sites Available Since This Restaurant is not Onsite");
 
-        OnsiteRestaurant restaurant = (OnsiteRestaurant) logger.getUser();
-        LinkedList<String> sites = restaurant.getSites();
+        LinkedList<String> sites = ((OnsiteRestaurant) restaurant).getSites();
 
         if(sites == null || sites.isEmpty())
             throw new Exception("No Sites Available");

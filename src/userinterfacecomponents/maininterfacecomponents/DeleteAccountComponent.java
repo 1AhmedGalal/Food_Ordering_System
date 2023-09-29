@@ -1,5 +1,6 @@
 package userinterfacecomponents.maininterfacecomponents;
 
+import datahandlers.DataHandlerException;
 import datahandlers.DataHandlerFactory;
 import datahandlers.usersdatahandler.UserDataHandler;
 import datahandlers.usersdatahandler.UserDataHandlerFactory;
@@ -28,19 +29,40 @@ public class DeleteAccountComponent extends UserInterfaceComponent
     {
 
         Logger logger = Logger.getInstance();
-        User user = logger.getUser();
+        user = logger.getUser();
         logger.signOut();
 
+        // be aware of the order of removing things
+        deleteUser();
+        deleteOrders();
+    }
+
+    private void deleteUser() throws DataHandlerException
+    {
         DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
         UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
 
         userDataHandler.loadAllData();
         userDataHandler.setObject(user);
         userDataHandler.removeObject();
+    }
+    private void deleteOrders()
+    {
 
-        //remove orders
-        //remove food
-        //remove offers and coupons
-        //remove menu
+    }
+
+    private void deleteFoods()
+    {
+
+    }
+
+    private void deleteOffers()
+    {
+
+    }
+
+    private void deleteMenu()
+    {
+
     }
 }
