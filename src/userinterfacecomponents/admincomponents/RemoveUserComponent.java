@@ -4,6 +4,7 @@ import datahandlers.DataHandlerFactory;
 import datahandlers.usersdatahandler.UserDataHandler;
 import datahandlers.usersdatahandler.UserDataHandlerFactory;
 import userinterfacecomponents.UserInterfaceComponent;
+import userinterfacecomponents.maininterfacecomponents.DeleteAccountComponent;
 import users.NormalUser;
 import users.User;
 
@@ -20,18 +21,13 @@ public class RemoveUserComponent extends UserInterfaceComponent
     @Override
     public void doWork() throws Exception
     {
+        System.out.println("Enter The Phone of Restaurant/User : ");
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter User's Phone : ");
         String phone = scanner.next();
 
-        User user = new NormalUser(phone);
+        User user = new NormalUser(phone); //type of user doesn't matter as it will be determined by the data handlers
 
-        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
-        UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
-
-        userDataHandler.setObject(user);
-        userDataHandler.loadAllData();
-        userDataHandler.removeObject();
+        DeleteAccountComponent deleteAccountComponent = new DeleteAccountComponent("delete account", user);
+        deleteAccountComponent.doWork();
     }
 }

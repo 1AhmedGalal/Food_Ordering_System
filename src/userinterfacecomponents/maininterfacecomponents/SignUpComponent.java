@@ -9,9 +9,18 @@ import java.util.Scanner;
 
 public class SignUpComponent extends UserInterfaceComponent
 {
+    private String name;
+
+    private String phone;
+
+    private String password;
+
     public SignUpComponent(String message)
     {
         super(message);
+        name = null;
+        phone = null;
+        password = null;
     }
 
     @Override
@@ -19,21 +28,29 @@ public class SignUpComponent extends UserInterfaceComponent
     {
         Scanner scanner = new Scanner(System.in);
 
-        String name;
         System.out.println("Name : ");
-        name = scanner.next();
+        name = scanner.nextLine();
 
-        String phone;
         System.out.println("Phone : ");
         phone = scanner.next();
 
-        String password;
         System.out.println("Password : ");
         password = scanner.next();
 
+        if(name == null || phone == null || password == null)
+            throw new Exception("Invalid data. Please Enter All Fields");
+        else if(password.length() < 8)
+            throw new Exception("Invalid password (minimum length is 8)");
+        else if(phone.length() < 11)
+            throw new Exception("Invalid phone");
+
+        addUser();
+    }
+
+    private void addUser() throws Exception
+    {
         User user = new NormalUser(name, phone, password);
         Logger logger = Logger.getInstance();
         logger.signUp(user);
-
     }
 }

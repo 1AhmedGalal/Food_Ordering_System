@@ -5,16 +5,21 @@ Mac
 258
 Alex
 =
-ONSITE_RESTAURANT
-Beefy
-147
-147
-Cairo
+NORMAL
+Ahmed Galal
+01000190606
+12345678
 =
 NORMAL
 Ahmed
 123
 123
+=
+ONSITE_RESTAURANT
+Beefy
+147
+147
+Cairo
 =
 ADMIN
 Galal

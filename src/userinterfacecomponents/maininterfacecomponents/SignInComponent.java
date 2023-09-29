@@ -4,14 +4,21 @@ import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.NormalUser;
 import users.User;
+import users.UserException;
 
 import java.util.Scanner;
 
 public class SignInComponent extends UserInterfaceComponent
 {
+    private String phone;
+
+    private String password;
+
     public SignInComponent(String message)
     {
         super(message);
+        phone = null;
+        password = null;
     }
 
     @Override
@@ -19,17 +26,19 @@ public class SignInComponent extends UserInterfaceComponent
     {
         Scanner scanner = new Scanner(System.in);
 
-        String phone;
         System.out.println("Phone : ");
         phone = scanner.next();
 
-        String password;
         System.out.println("Password : ");
         password = scanner.next();
 
+        addUser();
+    }
+
+    private void addUser() throws Exception
+    {
         User user = new NormalUser(phone, password);
         Logger logger = Logger.getInstance();
         logger.signIn(user);
-
     }
 }
