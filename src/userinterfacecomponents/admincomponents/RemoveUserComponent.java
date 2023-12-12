@@ -1,8 +1,5 @@
 package userinterfacecomponents.admincomponents;
 
-import datahandlers.DataHandlerFactory;
-import datahandlers.usersdatahandler.UserDataHandler;
-import datahandlers.usersdatahandler.UserDataHandlerFactory;
 import userinterfacecomponents.UserInterfaceComponent;
 import userinterfacecomponents.maininterfacecomponents.DeleteAccountComponent;
 import users.NormalUser;

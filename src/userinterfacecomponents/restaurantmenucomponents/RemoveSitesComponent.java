@@ -1,13 +1,12 @@
 package userinterfacecomponents.restaurantmenucomponents;
 
 import datahandlers.DataHandlerException;
-import datahandlers.usersdatahandler.UserDataHandler;
-import datahandlers.usersdatahandler.UserDataHandlerFactory;
+import datahandlers.usersdata.UserDataHandler;
+import datahandlers.usersdata.UserDataHandlerFactory;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnsiteRestaurant;
 import users.Restaurant;
-import users.UserException;
 
 import java.util.LinkedList;
 import java.util.Scanner;

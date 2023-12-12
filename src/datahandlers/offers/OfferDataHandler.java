@@ -42,7 +42,12 @@ public abstract class OfferDataHandler implements DataHandler
     @Override
     public void alertUpdate()
     {
-        allDataLoaded = false;
+        this.allDataLoaded = false;
+        this.coupons.clear();
+        this.foodDiscounts.clear();
+        this.restaurantDiscounts.clear();
+        this.offers.clear();
+        this.offerTypes.clear();
     }
 
     public LinkedList<String> loadOffersIDs(String id) throws DataHandlerException

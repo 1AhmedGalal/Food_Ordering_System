@@ -1,5 +1,6 @@
 package userinterfacecomponents.restaurantmenucomponents;
 
+import datahandlers.DataHandlerException;
 import datahandlers.foods.FoodDataHandler;
 import datahandlers.foods.FoodDataHandlerFactory;
 import datahandlers.menu.MenuDataHandler;
@@ -8,6 +9,7 @@ import foods.Food;
 import foods.MainDish;
 import logger.Logger;
 import menu.Menu;
+import menu.MenuException;
 import menu.RestaurantMenu;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.Restaurant;
@@ -16,39 +18,79 @@ import java.util.Scanner;
 
 public class RemoveMenuItemComponent extends UserInterfaceComponent
 {
+    private Restaurant restaurant;
+    private Menu menu;
+    private String removedItemID;
+
+    private FoodDataHandler foodDataHandler;
+
+    private MenuDataHandler menuDataHandler;
+
     public RemoveMenuItemComponent(String message)
     {
         super(message);
+        restaurant = null;
+        menu = null;
+        removedItemID = null;
+        foodDataHandler = null;
+        menuDataHandler = null;
     }
 
     @Override
     public void doWork() throws Exception
     {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Enter Component number : ");
-        int componentNumber = scanner.nextInt();
+        generateDataHandlers();
 
         Logger logger = Logger.getInstance();
-        Restaurant restaurant = (Restaurant) logger.getUser();
+        restaurant = (Restaurant) logger.getUser();
 
+        //display the menu for the user
+        ViewMenuComponent viewMenuComponent = new ViewMenuComponent("display menu");
+        viewMenuComponent.doWork();
+
+        System.out.println("Enter Component number : ");
+        Scanner scanner = new Scanner(System.in);
+        int componentNumber = scanner.nextInt();
+
+        loadMenu();
+        removeMenuItem(componentNumber);
+        updateMenuData();
+        updateFoodData();
+    }
+
+    private void generateDataHandlers() throws DataHandlerException
+    {
         MenuDataHandlerFactory menuDataHandlerFactory = new MenuDataHandlerFactory();
-        MenuDataHandler menuDataHandler = (MenuDataHandler) menuDataHandlerFactory.createDataHandler();
+        menuDataHandler = (MenuDataHandler) menuDataHandlerFactory.createDataHandler();
         menuDataHandler.loadAllData();
 
-        Menu menu = new RestaurantMenu(restaurant.getPhone());
+        FoodDataHandlerFactory foodDataHandlerFactory = new FoodDataHandlerFactory();
+        foodDataHandler = (FoodDataHandler) foodDataHandlerFactory.createDataHandler();
+        foodDataHandler.loadAllData();
+    }
+
+    private void removeMenuItem(int componentNumber) throws MenuException
+    {
+        removedItemID = menu.getItemID(componentNumber);
+        menu.RemoveItem(componentNumber);
+    }
+
+    private void loadMenu() throws Exception
+    {
+        menu = new RestaurantMenu(restaurant.getPhone());
         menuDataHandler.setObject(menu);
         menu = (Menu) menuDataHandler.loadFullObject();
+    }
 
-        String itemID = menu.getItemID(componentNumber);
-        menu.RemoveItem(componentNumber);
+    private void updateMenuData() throws Exception
+    {
         menuDataHandler.setObject(menu);
         menuDataHandler.updateObject();
+    }
 
-        FoodDataHandlerFactory foodDataHandlerFactory = new FoodDataHandlerFactory();
-        FoodDataHandler foodDataHandler = (FoodDataHandler) foodDataHandlerFactory.createDataHandler();
-        foodDataHandler.loadAllData();
-        Food food = new MainDish(itemID);
+    private void updateFoodData() throws Exception
+    {
+        Food food = new MainDish(removedItemID); //type doesn't matter for the data handler
         foodDataHandler.setObject(food);
         foodDataHandler.removeObject();
     }

@@ -151,7 +151,7 @@ public class OfferFileHandler extends OfferDataHandler
             throw new DataHandlerException(e.getMessage());
         }
 
-        allDataLoaded = false;
+        alertUpdate();
     }
 
     public void loadAllData() throws DataHandlerException
@@ -250,13 +250,16 @@ public class OfferFileHandler extends OfferDataHandler
     {
         if(offerType == OfferType.DISCOUNT)
         {
-            return new Discount(restaurantPhone, ownerID, percentage);
+            return new Discount(restaurantPhone, ownerID, percentage, offerID);
         }
         else if(offerType == OfferType.COUPON)
         {
-            Coupon coupon = new Coupon(restaurantPhone, ownerID, percentage);
+            Coupon coupon = new Coupon(restaurantPhone, ownerID, percentage, offerID);
+
             if(isUsed)
+            {
                 coupon.useCoupon();
+            }
 
             return coupon;
         }

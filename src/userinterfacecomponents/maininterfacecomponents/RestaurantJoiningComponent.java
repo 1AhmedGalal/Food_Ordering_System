@@ -1,6 +1,11 @@
 package userinterfacecomponents.maininterfacecomponents;
 
+import datahandlers.DataHandlerException;
+import datahandlers.menu.MenuDataHandler;
+import datahandlers.menu.MenuDataHandlerFactory;
 import logger.Logger;
+import menu.Menu;
+import menu.RestaurantMenu;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnlineRestaurant;
 import users.OnsiteRestaurant;
@@ -54,18 +59,19 @@ public class  RestaurantJoiningComponent extends UserInterfaceComponent
         System.out.println("Choose 1 if you are an online restaurant and any other number for onsite restaurant");
         choice = scanner.nextInt();
 
-        if(choice != 1)
+        if(choice == 1)
             makeOnlineRestaurant();
         else
             makeOnsiteRestaurant();
 
         addUser();
+        addMenu();
     }
 
     private void makeOnsiteRestaurant() throws UserException
     {
         Scanner scanner = new Scanner(System.in);
-        int choice;
+        int choice = 0;
 
         LinkedList<String> sites = new LinkedList<>();
         String site;
@@ -73,12 +79,15 @@ public class  RestaurantJoiningComponent extends UserInterfaceComponent
         do
         {
             System.out.println("Please Enter Your Restaurant Site");
+
+            if(choice == 1)
+                scanner.skip("\n");
+
             site = scanner.nextLine();
             sites.add(site);
 
             System.out.println("Choose 1 to continue entering sites and any other number to exit");
             choice = scanner.nextInt();
-
         }
         while (choice == 1);
 
@@ -94,5 +103,16 @@ public class  RestaurantJoiningComponent extends UserInterfaceComponent
     {
         Logger logger = Logger.getInstance();
         logger.signUp(user);
+    }
+
+    private void addMenu() throws DataHandlerException
+    {
+        MenuDataHandlerFactory menuDataHandlerFactory = new MenuDataHandlerFactory();
+        MenuDataHandler menuDataHandler = (MenuDataHandler) menuDataHandlerFactory.createDataHandler();
+        menuDataHandler.loadAllData();
+
+        Menu menu = new RestaurantMenu(user.getPhone());
+        menuDataHandler.setObject(menu);
+        menuDataHandler.saveObject();
     }
 }

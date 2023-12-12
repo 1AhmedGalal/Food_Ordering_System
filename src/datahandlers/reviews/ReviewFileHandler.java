@@ -124,7 +124,7 @@ public class ReviewFileHandler extends ReviewDataHandler
             throw new DataHandlerException(e.getMessage());
         }
 
-        allDataLoaded = false;
+        alertUpdate();
     }
 
     @Override

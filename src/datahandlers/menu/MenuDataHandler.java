@@ -29,5 +29,6 @@ public abstract class MenuDataHandler implements DataHandler
     public void alertUpdate()
     {
         allDataLoaded = false;
+        menus.clear();
     }
 }

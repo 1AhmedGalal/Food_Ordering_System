@@ -33,5 +33,7 @@ public abstract class FoodDataHandler implements DataHandler
     public void alertUpdate()
     {
         allDataLoaded = false;
+        foods.clear();
+        foodTypes.clear();
     }
 }

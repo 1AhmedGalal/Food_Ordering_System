@@ -1,4 +1,4 @@
-package datahandlers.usersdatahandler;
+package datahandlers.usersdata;
 
 public enum UserType
 {

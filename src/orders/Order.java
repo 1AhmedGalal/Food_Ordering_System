@@ -13,7 +13,6 @@ public abstract class Order
 {
     String orderID;
     protected String providerID;
-
     protected String costumerID;
     protected OrderState orderState;
     protected ArrayList<String> foodIDs;
@@ -26,8 +25,10 @@ public abstract class Order
         this.providerID = providerID;
         this.costumerID = costumerID;
         this.orderState = orderState;
-        this.foodIDs = foodIDs;
         this.totalPrice = totalPrice;
+
+        this.foodIDs = new ArrayList<>();
+        this.foodIDs.addAll(foodIDs);
     }
 
     //used in the interface when you don't know the full order
@@ -44,7 +45,7 @@ public abstract class Order
         this.totalPrice = totalPrice;
         this.orderState = OrderState.PROCESSING;
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy-HH:mm:ss");
         Date date = new Date();
         String orderTime = formatter.format(date);
         this.orderID = providerID + costumerID + orderTime.toString();

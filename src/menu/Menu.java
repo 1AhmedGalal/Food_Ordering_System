@@ -1,6 +1,10 @@
 package menu;
 
+import foods.Drink;
 import foods.Food;
+import offers.Discount;
+import offers.NullOffer;
+import pricecalculator.CalculationException;
 
 import java.util.ArrayList;
 
@@ -31,12 +35,25 @@ public abstract class Menu
         foods.remove(currentFodd);
     }
 
-    public ArrayList<String> getItemsNames()
+    public ArrayList<String> getItemDetails() throws CalculationException
     {
         ArrayList<String> items = new ArrayList<>();
 
         for(Food food : foods)
-            items.add(food.getName());
+        {
+            String price = null;
+            if(food.getOffer() instanceof Discount)
+                price = ", Price : " + food.getNetPrice() + "(Price Before Discount : " + food.getOriginalPrice() + ")";
+            else
+                price = ", Price : " + food.getNetPrice();
+
+            String detail = "Name : " + food.getName() + price + ", Size : " + food.getSize() + ", Details : " +  food.getDescription();
+
+            if(food instanceof Drink)
+                detail += ", " + ((Drink) food).getCupType();
+
+            items.add(detail);
+        }
 
         return items;
     }

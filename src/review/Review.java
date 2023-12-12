@@ -17,6 +17,13 @@ public abstract class Review
         this.reviewID = reviewID;
     }
 
+    public Review(String reviewerID, String subjectID)
+    {
+        this.reviewerID = reviewerID;
+        this.subjectID = subjectID;
+        this.reviewID = reviewerID + subjectID;
+    }
+
     public Review(String reviewerID, String subjectID, String reviewDetails, double rating)
     {
         this.reviewerID = reviewerID;

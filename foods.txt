@@ -1,41 +1,39 @@
 =
+DRINK
+01110155555Teabig
+01110155555
+Tea
+big
+5.0
+01110155555
+red tea
+glass
+=
 MAIN_DISH
-147VegBeefSmall
-147
-VegBeef
-Small
-140.5
-Steak_
+01110155555Steakbig
+01110155555
+Steak
+big
+205.0
+0111015555501110155555Steakbig04/11/2023-10:28:05
+Pan-Seared Steak has a garlic rosemary-infused butter that makes it taste steakhouse quality.
 =
 APPETIZER
-147PotatoSmall
-147
-Potato
-Small
-10.5
-mashed
+01110155555Green Saladsmall
+01110155555
+Green Salad
+small
+23.0
+011101555550111016677701/11/2023-19:57:27
+Combine onion, bell pepper, salad greens, deli meat, and tomato in a large salad bowl. 
 =
-MAIN_DISH
-147BeefSmall
-147
-Beef
-Small
-140.5
-Steak_
-=
-MAIN_DISH
-147BeefBig
-147
-Beef
-Big
-156.2
-medium
-=
-MAIN_DISH
-147SteakSmall
-147
-Steak
-Small
-4.0
-1
+DRINK
+01880158888Black Coffeesmall
+01880158888
+Black Coffee
+small
+20.0
+01880158888
+Done with instant coffe
+glass
 =

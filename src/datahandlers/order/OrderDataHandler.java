@@ -22,7 +22,6 @@ public abstract class OrderDataHandler implements DataHandler
     protected Hashtable<String, Order> orders; // key: orderID, value: order
     OrderDataHandler()
     {
-        this.order = null;
         this.allDataLoaded = false;
         this.providerOrders = new Hashtable<>();
         this.customerOrders = new Hashtable<>();
@@ -39,6 +38,9 @@ public abstract class OrderDataHandler implements DataHandler
     public void alertUpdate()
     {
         this.allDataLoaded = false;
+        this.providerOrders.clear();
+        this.customerOrders.clear();
+        this.orders.clear();
     }
 
     public LinkedList<String> loadOrdersIDs(String userID) throws DataHandlerException

@@ -15,7 +15,8 @@ public abstract class UserInterfaceCollector
         userInterfaceComponents = new ArrayList<>();
     }
 
-    public void display() throws Exception {
+    public void display() throws Exception
+    {
         while(true)
         {
             this.displayComponents();

@@ -3,11 +3,12 @@ package datahandlers.userinterface;
 import datahandlers.DataHandlerException;
 import userinterfacecomponents.UserInterfaceComponent;
 import userinterfacecomponents.admincomponents.ViewAllRestaurantsComponent;
+import userinterfacecomponents.maininterfacecomponents.DeleteAccountComponent;
+import userinterfacecomponents.maininterfacecomponents.EditPasswordComponent;
+import userinterfacecomponents.maininterfacecomponents.EditUserNameComponent;
 import userinterfacecomponents.maininterfacecomponents.SignOutComponent;
-import userinterfacecomponents.restaurantmenucomponents.CancelOrderComponent;
-import userinterfacecomponents.usercompoenents.MakeOrderComponent;
-import userinterfacecomponents.restaurantmenucomponents.ViewMenuComponent;
-import userinterfacecomponents.restaurantmenucomponents.ViewOrdersComponent;
+import userinterfacecomponents.restaurantmenucomponents.*;
+import userinterfacecomponents.usercompoenents.*;
 
 public class UserInterfaceDummyDataHandler extends UserInterfaceDataHandler
 {
@@ -48,10 +49,34 @@ public class UserInterfaceDummyDataHandler extends UserInterfaceDataHandler
         userInterfaceComponent = new ViewOrdersComponent("View Orders");
         userInterface.addComponent(userInterfaceComponent);
 
+        userInterfaceComponent = new ViewOffersComponent("View Coupons");
+        userInterface.addComponent(userInterfaceComponent);
+
+        userInterfaceComponent = new ViewReviewsComponent("View Reviews");
+        userInterface.addComponent(userInterfaceComponent);
+
         userInterfaceComponent = new MakeOrderComponent("Make Order");
         userInterface.addComponent(userInterfaceComponent);
 
         userInterfaceComponent = new CancelOrderComponent("Cancel Order");
+        userInterface.addComponent(userInterfaceComponent);
+
+        userInterfaceComponent = new AddReviewComponent("Add Review");
+        userInterface.addComponent(userInterfaceComponent);
+
+        userInterfaceComponent = new EditReviewComponent("Edit Review");
+        userInterface.addComponent(userInterfaceComponent);
+
+        userInterfaceComponent = new RemoveReviewComponent("Remove Review");
+        userInterface.addComponent(userInterfaceComponent);
+
+        userInterfaceComponent = new EditUserNameComponent("Change User Name");
+        userInterface.addComponent(userInterfaceComponent);
+
+        userInterfaceComponent = new EditPasswordComponent("Change Password");
+        userInterface.addComponent(userInterfaceComponent);
+
+        userInterfaceComponent = new DeleteAccountComponent("Remove Account");
         userInterface.addComponent(userInterfaceComponent);
 
         userInterfaceComponent = new SignOutComponent("Sign out");

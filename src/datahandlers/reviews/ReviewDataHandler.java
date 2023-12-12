@@ -37,6 +37,9 @@ public abstract class ReviewDataHandler implements DataHandler
     @Override
     public void alertUpdate()
     {
+        reviewers.clear();
+        subjects.clear();
+        reviews.clear();
         allDataLoaded = false;
     }
 

@@ -1,7 +1,7 @@
 package userinterfacecomponents.restaurantmenucomponents;
 
-import datahandlers.usersdatahandler.UserDataHandler;
-import datahandlers.usersdatahandler.UserDataHandlerFactory;
+import datahandlers.usersdata.UserDataHandler;
+import datahandlers.usersdata.UserDataHandlerFactory;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnlineRestaurant;
@@ -13,9 +13,12 @@ import java.util.Scanner;
 
 public class TransformRestaurantComponent extends UserInterfaceComponent
 {
+    private Restaurant restaurant;
+
     public TransformRestaurantComponent(String message)
     {
         super(message);
+        restaurant = null;
     }
 
     @Override
@@ -42,7 +45,6 @@ public class TransformRestaurantComponent extends UserInterfaceComponent
         if(choice == 1)
         {
             User user = logger.getUser();
-            Restaurant restaurant;
 
             if(currentType.equals("online"))
                 restaurant = new OnsiteRestaurant((Restaurant) user);

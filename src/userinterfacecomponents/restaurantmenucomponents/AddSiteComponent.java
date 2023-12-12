@@ -1,8 +1,8 @@
 package userinterfacecomponents.restaurantmenucomponents;
 
 import datahandlers.DataHandlerException;
-import datahandlers.usersdatahandler.UserDataHandler;
-import datahandlers.usersdatahandler.UserDataHandlerFactory;
+import datahandlers.usersdata.UserDataHandler;
+import datahandlers.usersdata.UserDataHandlerFactory;
 import logger.Logger;
 import userinterfacecomponents.UserInterfaceComponent;
 import users.OnsiteRestaurant;
@@ -57,8 +57,8 @@ public class AddSiteComponent extends UserInterfaceComponent
     {
         UserDataHandlerFactory userDataHandlerFactory = new UserDataHandlerFactory();
         UserDataHandler userDataHandler = (UserDataHandler) userDataHandlerFactory.createDataHandler();
-
         userDataHandler.loadAllData();
+
         userDataHandler.setObject(restaurant);
         userDataHandler.updateObject();
     }

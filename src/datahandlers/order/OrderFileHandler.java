@@ -131,7 +131,7 @@ public class OrderFileHandler extends OrderDataHandler
             throw new DataHandlerException(e.getMessage());
         }
 
-        allDataLoaded = false;
+        alertUpdate();
     }
 
     public void loadAllData() throws DataHandlerException
@@ -164,6 +164,7 @@ public class OrderFileHandler extends OrderDataHandler
                         orders.put(orderID, order);
                         addOrder(providerID, orderID, providerOrders);
                         addOrder(customerID, orderID, customerOrders);
+                        foodIDs.clear();
                     }
 
                     cnt = 0;

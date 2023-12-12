@@ -64,7 +64,8 @@ public class MenuFileHandler extends MenuDataHandler
             throw new DataHandlerException(e.getMessage());
         }
 
-        allDataLoaded = false;
+        alertUpdate();
+
     }
 
     @Override

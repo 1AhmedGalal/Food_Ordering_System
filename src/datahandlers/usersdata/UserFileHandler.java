@@ -1,4 +1,4 @@
-package datahandlers.usersdatahandler;
+package datahandlers.usersdata;
 
 import datahandlers.DataHandlerException;
 import users.*;

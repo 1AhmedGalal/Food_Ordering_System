@@ -1,4 +1,4 @@
-package datahandlers.usersdatahandler;
+package datahandlers.usersdata;
 import datahandlers.DataHandler;
 import users.User;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public abstract class UserDataHandler implements DataHandler
 
             if(currentUserType == userType)
             {
-                String data = "Name : " + user.getName() + " Phone : " + user.getPhone();
+                String data = "Name : " + user.getName() + ", Phone : " + user.getPhone();
                 usersData.add(data);
             }
         }
@@ -56,6 +56,8 @@ public abstract class UserDataHandler implements DataHandler
     @Override
     public void alertUpdate()
     {
+        users.clear();
+        userTypes.clear();
         allDataLoaded = false;
     }
 }

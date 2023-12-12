@@ -1,5 +1,8 @@
 package offers;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Discount extends Offer
 {
     String foodId;
@@ -14,7 +17,18 @@ public class Discount extends Offer
     {
         super(restaurantPhone, percentage);
         this.foodId = foodId;
-        this.offerID = restaurantPhone + foodId;
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy-HH:mm:ss");
+        Date date = new Date();
+        String offerTime = formatter.format(date);
+        this.offerID = restaurantPhone + foodId + offerTime;
+    }
+
+    public Discount(String restaurantPhone, String foodId, double percentage, String offerID)
+    {
+        super(restaurantPhone, percentage);
+        this.foodId = foodId;
+        this.offerID = offerID;
     }
 
     public String getFoodId()

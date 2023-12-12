@@ -2,10 +2,15 @@ package datahandlers.foods;
 
 import datahandlers.DataHandlerException;
 import datahandlers.maininterface.MainInterfaceDummyDataHandler;
+import datahandlers.offers.OfferDataHandler;
+import datahandlers.offers.OfferDataHandlerFactory;
 import foods.Appetizer;
 import foods.Drink;
 import foods.Food;
 import foods.MainDish;
+import offers.Discount;
+import offers.NullOffer;
+import offers.Offer;
 
 import java.io.*;
 import java.util.Set;
@@ -18,6 +23,8 @@ public class FoodFileHandler extends FoodDataHandler
     private String size;
     private String price;
     private String  description;
+
+    private String offerID;
 
     private String cupType;
 
@@ -117,7 +124,11 @@ public class FoodFileHandler extends FoodDataHandler
                 writer.write("\n" + food.getName());
                 writer.write("\n" + food.getSize());
                 writer.write("\n" + Double.toString(food.getOriginalPrice()));
+                writer.write("\n" + food.getOffer().getOfferID());
                 writer.write("\n" + food.getDescription());
+
+                if(food instanceof Drink)
+                    writer.write("\n" + ((Drink) food).getCupType());
 
                 writer.write("\n" + "=");
             }
@@ -129,7 +140,7 @@ public class FoodFileHandler extends FoodDataHandler
             throw new DataHandlerException(e.getMessage());
         }
 
-        allDataLoaded = false;
+        alertUpdate();
     }
 
     @Override
@@ -190,6 +201,10 @@ public class FoodFileHandler extends FoodDataHandler
                         break;
 
                     case 6:
+                        offerID = line;
+                        break;
+
+                    case 7:
                         description = line;
                         break;
 
@@ -246,22 +261,51 @@ public class FoodFileHandler extends FoodDataHandler
         }
     }
 
-    private Food makeFood(FoodType foodType)
+    private Food makeFood(FoodType foodType) throws Exception
     {
+        Offer offer = loadOffer();
+        Food food = null;
+
         switch (foodType)
         {
             case MAIN_DISH ->
             {
-                return new MainDish(restaurantPhone, name, size, description, Double.parseDouble(price));
+                food = new MainDish(restaurantPhone, name, size, description, Double.parseDouble(price));
+                food.setOffer(offer);
             }
             case APPETIZER ->
             {
-                return new Appetizer(restaurantPhone, name, size, description, Double.parseDouble(price));
+                food = new Appetizer(restaurantPhone, name, size, description, Double.parseDouble(price));
+                food.setOffer(offer);
             }
             default ->
             {
-                return new Drink(restaurantPhone, name, size, description, Double.parseDouble(price), cupType);
+                food = new Drink(restaurantPhone, name, size, description, Double.parseDouble(price), cupType);
+                food.setOffer(offer);
             }
         }
+
+        return food;
+    }
+
+    private Offer loadOffer() throws DataHandlerException
+    {
+        OfferDataHandlerFactory offerDataHandlerFactory = new OfferDataHandlerFactory();
+        OfferDataHandler offerDataHandler = (OfferDataHandler) offerDataHandlerFactory.createDataHandler();
+        offerDataHandler.loadAllData();
+
+        Offer offer = new NullOffer(offerID); //if an offer exists then the NullOffer will be changed by the data handler
+        offerDataHandler.setObject(offer);
+
+        try
+        {
+            offer = (Offer) offerDataHandler.loadFullObject();
+        }
+        catch (Exception e)
+        {
+            offer = new NullOffer(restaurantPhone);
+        }
+
+        return offer;
     }
 }

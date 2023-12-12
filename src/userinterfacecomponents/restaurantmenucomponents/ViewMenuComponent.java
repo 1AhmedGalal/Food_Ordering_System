@@ -3,8 +3,8 @@ package userinterfacecomponents.restaurantmenucomponents;
 import datahandlers.DataHandlerFactory;
 import datahandlers.menu.MenuDataHandler;
 import datahandlers.menu.MenuDataHandlerFactory;
-import datahandlers.usersdatahandler.UserDataHandler;
-import datahandlers.usersdatahandler.UserDataHandlerFactory;
+import datahandlers.usersdata.UserDataHandler;
+import datahandlers.usersdata.UserDataHandlerFactory;
 import logger.Logger;
 import menu.Menu;
 import menu.RestaurantMenu;
@@ -18,9 +18,13 @@ import java.util.Scanner;
 
 public class ViewMenuComponent extends UserInterfaceComponent
 {
+    private Menu menu;
+    private Restaurant restaurant;
     public ViewMenuComponent(String message)
     {
         super(message);
+        menu = null;
+        restaurant = null;
     }
 
     @Override
@@ -28,38 +32,14 @@ public class ViewMenuComponent extends UserInterfaceComponent
     {
         Logger logger = Logger.getInstance();
         User user = logger.getUser();
-        Restaurant restaurant = null;
 
-        if(user instanceof Restaurant)
-        {
+        if(user instanceof Restaurant) //this is the restaurant displaying its own menu
             restaurant = (Restaurant) user;
-        }
-        else
-        {
-            System.out.println("Please Enter Restaurant Phone : ");
+        else                          //users wanting to see restaurants' menus
+             makeRestaurant();
 
-            Scanner scanner = new Scanner(System.in);
-            String phone = scanner.next();
-            restaurant = new OnlineRestaurant(phone);
-
-            DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
-            UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
-            userDataHandler.loadAllData();
-
-            userDataHandler.setObject(restaurant);
-            restaurant = (Restaurant) userDataHandler.loadFullObject();
-        }
-
-        MenuDataHandlerFactory menuDataHandlerFactory = new MenuDataHandlerFactory();
-        MenuDataHandler menuDataHandler = (MenuDataHandler) menuDataHandlerFactory.createDataHandler();
-        menuDataHandler.loadAllData();
-
-        Menu menu = new RestaurantMenu(restaurant.getPhone());
-        menuDataHandler.setObject(menu);
-        menu = (Menu) menuDataHandler.loadFullObject();
-
-        ArrayList<String> menuItems = menu.getItemsNames();
-
+        makeMenu();
+        ArrayList<String> menuItems = menu.getItemDetails();
         if(menuItems.isEmpty())
             throw new Exception("Menu is Empty");
 
@@ -71,7 +51,32 @@ public class ViewMenuComponent extends UserInterfaceComponent
         }
 
         System.out.println("------------------------");
+    }
 
+    private void makeRestaurant() throws Exception
+    {
+        System.out.println("Please Enter Restaurant Phone : ");
 
+        Scanner scanner = new Scanner(System.in);
+        String phone = scanner.next();
+        restaurant = new OnlineRestaurant(phone); //type doesn't matter as it will be corrected by the data handler
+
+        DataHandlerFactory dataHandlerFactory = new UserDataHandlerFactory();
+        UserDataHandler userDataHandler = (UserDataHandler) dataHandlerFactory.createDataHandler();
+
+        userDataHandler.loadAllData();
+        userDataHandler.setObject(restaurant);
+        restaurant = (Restaurant) userDataHandler.loadFullObject();
+    }
+
+    private void makeMenu() throws Exception
+    {
+        MenuDataHandlerFactory menuDataHandlerFactory = new MenuDataHandlerFactory();
+        MenuDataHandler menuDataHandler = (MenuDataHandler) menuDataHandlerFactory.createDataHandler();
+        menuDataHandler.loadAllData();
+
+        menu = new RestaurantMenu(restaurant.getPhone());
+        menuDataHandler.setObject(menu);
+        menu = (Menu) menuDataHandler.loadFullObject();
     }
 }
